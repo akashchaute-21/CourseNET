@@ -60,6 +60,21 @@ function TimeLineSection() {
 
         <div className='relative shadow-blue-200'>
                 <img src={timelineImage} alt="timelineImage" className='shadow-white object-cover h-fit' />
+
+                <div className='absolute bg-caribbeangreen-700 flex flex-row text-white uppercase py-7
+                                left-[50%] translate-x-[-50%] translate-y-[-50%]'>
+
+                    <div className='flex flex-row gap-5 items-center border-r border-caribbeangreen-300 px-5'>
+                            <p className='text-3xl font-bold'>10</p>
+                            <p className='text-caribbeangreen-300 text-sm'>Years of Experience</p>
+                    </div>
+
+                    <div className='flex flex-row gap-5 items-center  px-5'>
+                            <p className='text-3xl font-bold'>250</p>
+                            <p className='text-caribbeangreen-300 text-sm'>Type of courses</p>
+                    </div>
+
+                </div>
         </div>
 
       </div>
