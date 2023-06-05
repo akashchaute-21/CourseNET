@@ -57,7 +57,7 @@ function ExploreMore() {
         <div className='h-[150px]'></div>
 
         {/* Course card ka group */}
-        <div className='absolute flex flex-row gap-10 justify-between w-full'>
+        {/* <div className='absolute flex flex-row gap-10 justify-between w-full'>
             {
                 courses.map( (element, index) => {
                     return(
@@ -70,7 +70,7 @@ function ExploreMore() {
                     )
                 })
             }
-        </div>
+        </div> */}
 
     </div>
   )
