@@ -9,5 +9,5 @@ const rootReducer= combineReducers({
         profile : profileReducer,
         cart : cartReducer,
 })
-
+ 
 export default rootReducer

@@ -11,7 +11,7 @@ const profileSlice = createSlice({
         setUser(state, value) {
             state.user = value.payload; 
         },
-    },
+    }, 
 });
 
 export const {setUser} = profileSlice.actions;

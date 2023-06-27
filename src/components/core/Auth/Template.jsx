@@ -1,6 +1,7 @@
 import { FcGoogle } from "react-icons/fc"
 import { useSelector } from "react-redux"
-
+import LoginForm from "./LoginForm"
+import SignupForm from "./SignupForm"
 import frameImg from "../../../assets/Images/frame.png"
 
 function Template({ title, description1, description2, image, formType }) {
@@ -22,7 +23,7 @@ function Template({ title, description1, description2, image, formType }) {
                 {description2}
               </span>
             </p>
-            {/* {formType === "signup" ? <SignupForm /> : <LoginForm />} */}
+            {formType === "signup" ? <LoginForm /> : <LoginForm />}
           </div>
           <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0">
             <img
