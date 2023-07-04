@@ -9,6 +9,8 @@ import Login from '../../pages/Login'
 
 import { useState } from 'react'
 import {IoIosArrowDropdownCircle} from "react-icons/io"
+import { apicalls } from '../../services/apicalls'
+import { categories } from '../../services/api'
 
 const subLinks = [ 
     {
@@ -28,6 +30,17 @@ const Navbar = () => {
     const {user} = useSelector( (state) => state.profile );
     const {totalItems} = useSelector( (state) => state.cart )
     const location = useLocation();
+    const [sublink,setSubLink] = useState([]);
+    useEffect(()=>{
+      async()=>{
+        try {
+            const res = await apicalls("GET",categories.CATEGORIES_API)
+         setSubLink(res.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+      }
+    },[])
 
     const matchRoute = (route) => {
         return matchPath({path:route}, location.pathname);
