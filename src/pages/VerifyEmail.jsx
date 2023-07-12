@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-// import OtpInput from "react-otp-input";
+import OtpInput from "react-otp-input";
 import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { RxCountdownTimer } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
-// import { sendOtp, signUp } from "../services/operations/authAPI";
+import { sendOtp, signUp } from "../services/operations/authAPI";
 import { useNavigate } from "react-router-dom";
 
 function VerifyEmail() {
-  // const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState("");
   const { signupData, loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,18 +32,18 @@ function VerifyEmail() {
       confirmPassword,
     } = signupData;
 
-    // dispatch(
-    //   signUp(
-    //     accountType,
-    //     firstName,
-    //     lastName,
-    //     email,
-    //     password,
-    //     confirmPassword,
-    //     otp,
-    //     navigate
-    //   )
-    // );
+    dispatch(
+      signUp(
+        accountType,
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+        otp,
+        navigate
+      )
+    );
   };
 
   return (
@@ -61,9 +61,9 @@ function VerifyEmail() {
             A verification code has been sent to you. Enter the code below
           </p>
           <form onSubmit={handleVerifyAndSignup}>
-            {/* <OtpInput
-              // value={otp}
-              // onChange={setOtp}
+            <OtpInput
+              value={otp}
+              onChange={setOtp}
               numInputs={6}
               renderInput={(props) => (
                 <input
@@ -79,7 +79,7 @@ function VerifyEmail() {
                 justifyContent: "space-between",
                 gap: "0 6px",
               }}
-            /> */}
+            />
             <button
               type="submit"
               className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
@@ -95,7 +95,7 @@ function VerifyEmail() {
             </Link>
             <button
               className="flex items-center text-blue-100 gap-x-2"
-              // onClick={() => dispatch(sendOtp(signupData.email))}
+              onClick={() => dispatch(sendOtp(signupData.email))}
             >
               <RxCountdownTimer />
               Resend it

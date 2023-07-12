@@ -1,4 +1,3 @@
-import React from 'react'
 import loginImg from "../assets/Images/login.webp"
 import Template from "../components/core/Auth/Template"
 
@@ -13,5 +12,5 @@ function Login() {
     />
   )
 }
-  
+
 export default Login

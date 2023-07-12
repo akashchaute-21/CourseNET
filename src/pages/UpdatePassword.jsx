@@ -4,7 +4,7 @@ import { BiArrowBack } from "react-icons/bi"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
-// import { resetPassword } from "../services/operations/authAPI"
+import { resetPassword } from "../services/operations/authAPI"
 
 function UpdatePassword() {
   const navigate = useNavigate()
@@ -23,17 +23,15 @@ function UpdatePassword() {
 
   const handleOnChange = (e) => {
     setFormData((prevData) => ({
-                  // use previous data
-                  ...prevData,
-                  [e.target.name]: e.target.value,
-                }))
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }))
   }
 
   const handleOnSubmit = (e) => {
-            e.preventDefault()
-            //token is last part of email sent
-            const token = location.pathname.split("/").at(-1)
-            // dispatch(resetPassword(password, confirmPassword, token, navigate))
+    e.preventDefault()
+    const token = location.pathname.split("/").at(-1)
+    dispatch(resetPassword(password, confirmPassword, token, navigate))
   }
 
   return (
