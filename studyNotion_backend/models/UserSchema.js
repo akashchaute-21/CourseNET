@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
         required:true,
         enum:["Admin", "Student","Instructor"],
     },
-    aditiionaldetails:{
+    aditionaldetails:{
         type:mongoose.SchemaTypes.ObjectId,
         required:true,
         ref:"Profile" 
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
     }],
     image:{
         type:String,
-        required:true
+        required:false
     },
     courseprogress:[{
         type:mongoose.SchemaTypes.ObjectId,

@@ -18,12 +18,12 @@ export default function MyProfile() {
         <div className="flex items-center gap-x-4">
           <img
             src={user?.image}
-            alt={`profile-${user?.firstName}`}
+            alt={`profile-${user?.firstname}`}
             className="aspect-square w-[78px] rounded-full object-cover"
           />
           <div className="space-y-1">
             <p className="text-lg font-semibold text-richblack-5">
-              {user?.firstName + " " + user?.lastName}
+              {user?.firstname + " " + user?.lastname}
             </p>
             <p className="text-sm text-richblack-300">{user?.email}</p>
           </div>
@@ -51,12 +51,12 @@ export default function MyProfile() {
         </div>
         <p
           className={`${
-            user?.additionalDetails?.about
+            user?.aditionaldetails?.about
               ? "text-richblack-5"
               : "text-richblack-400"
           } text-sm font-medium`}
         >
-          {user?.additionalDetails?.about ?? "Write Something About Yourself"}
+          {user?.aditionaldetails?.about ?? "Write Something About Yourself"}
         </p>
       </div>
       <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
@@ -78,7 +78,7 @@ export default function MyProfile() {
             <div>
               <p className="mb-2 text-sm text-richblack-600">First Name</p>
               <p className="text-sm font-medium text-richblack-5">
-                {user?.firstName}
+                {user?.firstname}
               </p>
             </div>
             <div>
@@ -90,7 +90,7 @@ export default function MyProfile() {
             <div>
               <p className="mb-2 text-sm text-richblack-600">Gender</p>
               <p className="text-sm font-medium text-richblack-5">
-                {user?.additionalDetails?.gender ?? "Add Gender"}
+                {user?.aditionaldetails?.gender ?? "Add Gender"}
               </p>
             </div>
           </div>
@@ -98,19 +98,19 @@ export default function MyProfile() {
             <div>
               <p className="mb-2 text-sm text-richblack-600">Last Name</p>
               <p className="text-sm font-medium text-richblack-5">
-                {user?.lastName}
+                {user?.lastname}
               </p>
             </div>
             <div>
               <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
               <p className="text-sm font-medium text-richblack-5">
-                {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
+                {user?.aditionaldetails?.contactnumber ?? "Add Contact Number"}
               </p>
             </div>
             <div>
               <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
               <p className="text-sm font-medium text-richblack-5">
-                {formattedDate(user?.additionalDetails?.dateOfBirth) ??
+                {formattedDate(user?.aditionaldetails?.dob) ??
                   "Add Date Of Birth"}
               </p>
             </div>

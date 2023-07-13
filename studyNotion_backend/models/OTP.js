@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mailSender = require("../utils/mailSender");
+const sendMail = require("../utils/sendMail");
 
 const OTPSchema = new mongoose.Schema({
     email:{
@@ -13,7 +13,7 @@ const OTPSchema = new mongoose.Schema({
     createdAt: {
         type:Date,
         default:Date.now(),
-        expires: 5*60,
+       // expires: 60,
     }
 });
 
@@ -22,7 +22,7 @@ const OTPSchema = new mongoose.Schema({
 async function sendVerificationEmail(email, otp) {
     try{
         const mailResponse = await sendMail(email, "Verification Email from StudyNotion", otp);
-        console.log("Email sent Successfully: ", mailResponse);
+        console.log("Email sent Successfully: ",mailResponse);
     }
     catch(error) {
         console.log("error occured while sending mails: ", error);
@@ -31,7 +31,9 @@ async function sendVerificationEmail(email, otp) {
 }
 
 OTPSchema.pre("save", async function(next) {
+    
     await sendVerificationEmail(this.email, this.otp);
+    console.log("otp saved")
     next();
 }) 
 
