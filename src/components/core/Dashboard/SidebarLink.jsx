@@ -14,7 +14,7 @@ export default function SidebarLink({ link, iconName }) {
   }
 
   return (
-    <NavLink
+    <NavLink 
       to={link.path}
       onClick={() => dispatch(resetCourseState())}
       className={`relative px-8 py-2 text-sm font-medium ${

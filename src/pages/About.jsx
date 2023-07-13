@@ -1,9 +1,9 @@
 import React from "react"
 
 import FoundingStory from "../assets/Images/FoundingStory.png"
-import BannerImage1 from "../assets/Images/aboutus1.webp"
-import BannerImage2 from "../assets/Images/aboutus2.webp"
-import BannerImage3 from "../assets/Images/aboutus3.webp"
+import BannerImage1 from "../assets/Images/aboutus1.png"
+import BannerImage2 from "../assets/Images/aboutus2.png"
+import BannerImage3 from "../assets/Images/aboutus3.png"
 import Footer from "../components/Common/Footer"
 import ReviewSlider from "../components/Common/ReviewSlider"
 import ContactFormSection from "../components/core/AboutPage/ContactFormSection"
@@ -11,20 +11,17 @@ import LearningGrid from "../components/core/AboutPage/LearningGrid"
 import Quote from "../components/core/AboutPage/Quote"
 import StatsComponenet from "../components/core/AboutPage/Stats"
 import HighlightText from "../components/core/HomePage/HighlightText"
-
+ 
 const About = () => {
   return (
     <div>
       <section className="bg-richblack-700">
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
-            Driving Innovation in Online Education for a
+          Pioneering Online Education for a 
             <HighlightText text={"Brighter Future"} />
             <p className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]">
-              Studynotion is at the forefront of driving innovation in online
-              education. We're passionate about creating a brighter future by
-              offering cutting-edge courses, leveraging emerging technologies,
-              and nurturing a vibrant learning community.
+            CourseNET is revolutionizing online education, delivering cutting-edge courses, and empowering learners worldwide. With innovation, emerging technologies, and a vibrant community, we shape a brighter future for education. Embrace new possibilities and shape your own educational journey with us.
             </p>
           </header>
           <div className="sm:h-[70px] lg:h-[150px]"></div>
@@ -68,11 +65,11 @@ const About = () => {
               </p>
             </div>
 
-            <div>
+            <div className="flex justify-center">
               <img
                 src={FoundingStory}
                 alt=""
-                className="shadow-[0_0_20px_0] shadow-[#FC6767]"
+                className="shadow-[0_0_20px_0] shadow-[#FC6767] w-[80%]"
               />
             </div>
           </div>

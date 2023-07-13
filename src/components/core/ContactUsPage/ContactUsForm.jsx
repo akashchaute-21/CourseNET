@@ -62,7 +62,7 @@ const ContactUsForm = () => {
             {...register("firstname", { required: true })}
           />
           {errors.firstname && (
-            <span className="-mt-1 text-[12px] text-yellow-100">
+            <span className="-mt-1 text-[12px] text-[#4db5ff]">
               Please enter your name.
             </span>
           )}

@@ -33,6 +33,7 @@ function SignupForm() {
   const handleOnChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
+      // target.name is syntax
       [e.target.name]: e.target.value,
     }))
   }

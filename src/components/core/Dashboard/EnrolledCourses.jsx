@@ -13,7 +13,7 @@ export default function EnrolledCourses() {
   const [enrolledCourses, setEnrolledCourses] = useState(null)
 
   useEffect(() => {
-    ;(async () => {
+    ;(async () => { 
       try {
         const res = await getUserEnrolledCourses(token) // Getting all the published and the drafted courses
 

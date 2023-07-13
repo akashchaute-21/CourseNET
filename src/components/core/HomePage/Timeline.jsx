@@ -1,5 +1,5 @@
 import React from "react";
-import TimeLineImage from "../../../assets/Images/TimelineImage.png";
+import TimeLineImage from "../../../assets/Images/TimelineImage1.jpg";
 import Logo1 from "../../../assets/TimeLineLogo/Logo1.svg";
 import Logo2 from "../../../assets/TimeLineLogo/Logo2.svg";
 import Logo3 from "../../../assets/TimeLineLogo/Logo3.svg";
@@ -32,7 +32,7 @@ const TimeLine = [
 const TimelineSection = () => {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row gap-20 mb-20 items-center">
+      <div className="flex flex-col lg:flex-row-reverse gap-20 mb-20 items-center">
         <div className="lg:w-[45%] flex flex-col gap-14 lg:gap-3">
           {TimeLine.map((ele, i) => {
             return (
@@ -77,7 +77,7 @@ const TimelineSection = () => {
           <img
             src={TimeLineImage}
             alt="timelineImage"
-            className="shadow-white shadow-[20px_20px_0px_0px] object-cover h-[400px] lg:h-fit"
+            className="shadow-white shadow-[20px_20px_0px_0px] object-cover h-[500px] "
           />
         </div>
       </div>
