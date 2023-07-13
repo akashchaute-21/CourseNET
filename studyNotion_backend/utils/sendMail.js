@@ -3,21 +3,32 @@ const nodemailer = require("nodemailer");
 const sendMail =async (email,title,body)=>{
     try{
        let transport = nodemailer.createTransport({
-         host:process.env.MAIL_HOST,
+        host: 'smtp.gmail.com',
+port: 465,
+secure: true,
+
          auth:{
-            user:process.env.MAIL_USER,
-            pass: process.env.MAIL_PASS
+            user:"q216908@gmail.com",
+            pass: "tkgumhmttzfydjrh"
          }
        })
-       const info = await transport.sendMail(
+     
+      transport.sendMail(
         {
-            from:"yash",
+            from:"q216908@gmail.com",
             to: `${email}`,
             subject:`${title}`,
             html:`${body}`
-        }
+        },(error, info)=>{
+            if (error) {
+            console.log(error);
+            } else {
+            console.log('Email sent: ' + info.response);
+            return info.response
+            }
+            }
         )
-        return info;
+
     }catch(error){
         console.log(error);
     

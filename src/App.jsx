@@ -41,10 +41,10 @@ function App() {
   const { user } = useSelector((state) => state.profile)
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      const token = JSON.parse(localStorage.getItem("token"))
-      dispatch(getUserDetails(token, navigate))
-    }
+    // if (localStorage.getItem("token")) {
+    //   const token = JSON.parse(localStorage.getItem("token"))
+    //   dispatch(getUserDetails(token, navigate))
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -109,8 +109,9 @@ function App() {
           {/* Route for all users */}
           <Route path="dashboard/my-profile" element={<MyProfile />} />
           <Route path="dashboard/Settings" element={<Settings />} />
+         
           {/* Route only for Instructors */}
-          {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+          {user?.accounttype === ACCOUNT_TYPE.INSTRUCTOR && (
             <>
               <Route path="dashboard/instructor" element={<Instructor />} />
               <Route path="dashboard/my-courses" element={<MyCourses />} />
@@ -122,7 +123,7 @@ function App() {
             </>
           )}
           {/* Route only for Students */}
-          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+          {user?.accounttype === ACCOUNT_TYPE.STUDENT && (
             <>
               <Route
                 path="dashboard/enrolled-courses"
