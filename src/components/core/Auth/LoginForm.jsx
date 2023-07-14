@@ -32,7 +32,7 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleOnSubmit}
-      className="mt-6 flex w-full flex-col gap-y-4"
+      className="mt-6 flex w-full flex-col gap-y-4 "
     >
       <label className="w-full">
         <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
@@ -75,11 +75,11 @@ function LoginForm() {
           <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
             Forgot Password
           </p>
-        </Link>
+        </Link> 
       </label>
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+        className="mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900"
       >
         Sign In
       </button>

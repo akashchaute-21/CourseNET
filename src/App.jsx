@@ -11,6 +11,7 @@ import OpenRoute from "./components/core/Auth/OpenRoute"
 import PrivateRoute from "./components/core/Auth/PrivateRoute"
 import AddCourse from "./components/core/Dashboard/AddCourse"
 import Cart from "./components/core/Dashboard/Cart"
+import NewCourses from "./components/core/Dashboard/NewCourse/NewCourses"
 import EditCourse from "./components/core/Dashboard/EditCourse"
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses"
 import Instructor from "./components/core/Dashboard/Instructor"
@@ -130,6 +131,7 @@ function App() {
                 element={<EnrolledCourses />}
               />
               <Route path="/dashboard/cart" element={<Cart />} />
+              <Route path="/dashboard/new-courses" element={<NewCourses/>} />
             </>
           )}
           <Route path="dashboard/settings" element={<Settings />} />

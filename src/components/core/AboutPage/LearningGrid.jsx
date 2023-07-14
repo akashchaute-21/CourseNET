@@ -68,7 +68,7 @@ const LearningGrid = () => {
                 <p className="text-richblack-300 font-medium">
                   {card.description}
                 </p>
-
+ 
                 <div className="w-fit mt-2">
                   <CTAButton active={true} linkto={card.BtnLink}>
                     {card.BtnText}
