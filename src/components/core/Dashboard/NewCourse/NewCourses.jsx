@@ -7,7 +7,10 @@ import IMG5 from '../../../../assets/NewCourses/portfolio5.png'
 import IMG6 from '../../../../assets/NewCourses/portfolio6.jpg'
 import IMG7 from '../../../../assets/NewCourses/portfolio7.png'
 import IMG8 from '../../../../assets/NewCourses/portfolio8.png'
- 
+import { useState } from 'react';
+import {AiOutlineDown} from 'react-icons/ai'
+
+
 const data = [
   {
     id:1, 
@@ -54,12 +57,54 @@ const data = [
   
 ]
  
+
 function NewCourses() {
+const [isOpen, setIsOpen] = useState(false);
+
+const toggleDropdown = () => {
+  setIsOpen(!isOpen);
+};
+
   return (
     <section className='flex flex-col gap-5'>
-      <div className='flex flex-col items-center justify-center gap-3'>
+      <div className='flex flex-row'>
+      <div className='flex flex-col items-center justify-center gap-3 w-[80%]'>
       <h2 className='font-bold text-6xl'>Our New Courses</h2>
       <h2 className='font-semibold text-3xl'>Explore To Learn</h2>
+      </div>
+
+      {/* <div className='flex justify-center items-center'> 
+          <button className=''>
+          Sort By
+          </button> 
+      </div> */}
+
+      <div className="relative flex justify-center items-center">
+      <button
+        type="button"
+        onClick={toggleDropdown}
+        className="rounded-[8px] flex flex-row justify-center items-center gap-2 bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 mb-8"
+      >
+        Sort By <AiOutlineDown/>
+      </button>
+      {isOpen && (
+        <div className="absolute right-0 mt-40 bg-[#2c2c6c] rounded-md shadow-lg">
+          <ul className="py-1">
+            <li>
+              <a href="#a" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Option 1</a>
+            </li>
+            <li>
+              <a href="#b" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Option 2</a>
+            </li>
+            <li>
+              <a href="#c" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Option 3</a>
+            </li>
+          </ul>
+        </div>
+      )}
+      </div>
+
+
       </div>
       <div className="grid mx-auto w-[350px] xl:w-fit grid-cols-1 xl:grid-cols-3 sm:grid-cols-1 gap-7 mb-12">
         {
