@@ -1,27 +1,26 @@
 const SubSec = require("../models/SubSection");
 const Sec = require("../models/Section");
-const { uploadImage } = require("../utils/imageUploader");
+const {  uploadFile } = require("../utils/fileUploader");
 
 
 exports.createSubSec = async(req,res)=>{
   try {
       //fetch data
-      const {sectionId,title,timeDuration, description }=req.body;
+      const {sectionId,title, description }=req.body;
       //extract video
-      const video =req.files.videoFile;
+      const video =req.files.video;
       //validation
-      if(!sectionId ||  !title ||!timeDuration ||!description||!video){
+      if(!sectionId ||  !title ||!description||!video){
           return res.status(500).json({
               success:false,
               message:"all fields are required"
           })
       }
       //upload video to cloudinary
-      const uploadVideo = await uploadImage(video,process.env.FLODER_NAME)
+      const uploadVideo = await  uploadFile (video,"Lecture_Videos")
       //create a subsection
       const newSubSec = await SubSec.create({
           title,
-          timeDuration,
           description,
           videoUrl:uploadVideo.secure_url
       })
@@ -30,11 +29,12 @@ exports.createSubSec = async(req,res)=>{
           $push:{
               subSection:newSubSec._id
           }
-      })
+      },{new:true})
       //return response
       return res.status(200).json({
           success:true,
-          message:"new section created successfully"
+          message:"new sub section created successfully",
+          data:updateSec
       })
   } catch (error) {
     return res.status(500).json({

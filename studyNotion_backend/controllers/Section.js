@@ -1,5 +1,6 @@
 const Section = require ("../models/Section");
 const Course = require("../models/Course");
+const SubSection = require("../models/SubSection");
 
 exports.createSection = async(req,res)=>{
     try {
@@ -25,17 +26,19 @@ exports.createSection = async(req,res)=>{
             })
         }
         //update course with section id
-       updateCourse = await Course.findByIdAndUpdate(courseId,{
+       updatedCourse = await Course.findByIdAndUpdate(courseId,{
             $push:{
 courseContent:newSec._id
             }},{new:true}
-        )
+        ).populate("courseContent")
         // return response
-        return res.status(500).json({
+        return res.status(200).json({
             success:true,
-            message:"section created success  fully"
+            message:"section created successfully",
+            updatedCourse
         })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             success:false,
             message:error.message
@@ -46,7 +49,7 @@ courseContent:newSec._id
 exports.updateSection = async (req,res)=>{
     try {
         //data fetch
-        const {sectionName,sectionId}=req.body;
+        const {sectionName,sectionId,courseId}=req.body;
 
         // data validation
         if(!sectionName || !sectionId){
@@ -56,13 +59,14 @@ exports.updateSection = async (req,res)=>{
             })
         }
         //upadte the  db 
-        const updatedSec = await Section.findByIdAndUpdate(sectionId,{
+          await Section.findByIdAndUpdate(sectionId,{$set:{
             sectionName
-        },{new:true});
-       
-        return res.status(500).json({
+        }});
+       const updatedCourse = await Course.findById(courseId).populate("courseContent")
+        return res.status(200).json({
             success:true,
-            message:"section updated success  fully"
+            message:"section updated success  fully",
+            data:updatedCourse
         })
 
     } catch (error) {
@@ -76,15 +80,25 @@ exports.updateSection = async (req,res)=>{
 exports.deleteSection = async(req,res)=>{
     try {
         //fetch data
-        const {courseId} = req.body;
+        const {courseId,sectionId} = req.body;
         //delete the secc
-        await Section.findByIdAndDelete(courseId);
-        return res.status(500).json({
+        
+        const courseDet = await Course.findByIdAndUpdate(courseId,{
+            $pull:{
+                courseContent: sectionId
+            }
+        },{new:true}).populate("courseContent")
+      
+     const secDet=   await Section.findByIdAndDelete(sectionId);
+     await SubSection.deleteMany({_id: { $in: secDet.subSection}})
+        return res.status(200).json({
             success:true,
-            message:"section deleted success  fully"
+            message:"section deleted successfully",
+            data:courseDet
         })
         
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             success:false,
             message:error.message

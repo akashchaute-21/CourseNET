@@ -100,6 +100,7 @@ export function login(email, password, navigate) {
       }
 
       toast.success("Login Successful")
+      console.log("token",response.data.token)
       dispatch(setToken(response.data.token))
       const userImage = response.data?.user?.image
         ? response.data.user.image

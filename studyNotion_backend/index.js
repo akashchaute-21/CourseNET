@@ -1,22 +1,26 @@
 const express = require("express");
+const fileupload = require("express-fileupload")
 const dbconnect = require("./config/database")
 const userRouter = require("./routes/User.js")
+const profileRouter = require("./routes/Profile")
+const courseRouter = require("./routes/Course")
 const app = express();
-const {
-    login,
-    signup,
-    sendotp,
-    changePassword,
-  } = require("./controllers/Auth")
+
 const cors = require('cors');
 app.use(express.json())
+app.use(fileupload({
+    useTempFiles:true,
+    tempFileDir:'/tmp/'
+}));
 
 //connecting the database 
 dbconnect.dbconnect()
 
 app.use(cors());
-app.use("/auth",userRouter);
 
+app.use("/auth",userRouter);
+app.use("/profile",profileRouter);
+app.use("/course",courseRouter);
 
 
 

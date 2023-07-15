@@ -213,12 +213,52 @@ exports.login = async(req,res)=>{
             message:"Login failed"
           })
         
+      
+        
     }
 }
 
 exports.changePassword = async(req,res)=>{
-    //get old password new password confirmpassword
-    //validate the new and confirm 
-    //update the new password in db
-    //send response 
+    try {
+      const {oldPassword, newPassword}= req.body;
+      if(!oldPassword || !newPassword){
+        return res.status(403).json({
+          success:false,
+          message:"please enter all the fields"
+        })
+      }
+      const userId= req.user.id;
+      const userDet = await User.findById(userId)
+     // console.log(userId)
+      if(!userDet){
+        return res.status(403).json({
+          success:false,
+          message:"User not found"
+        })
+      }
+      if(await bcrypt.compare(oldPassword,userDet.password)){
+        const hashedPass = await bcrypt.hash(newPassword,10);
+       await User.findByIdAndUpdate(userId,{$set:{password:hashedPass}});
+        return  res.status(200).json({
+          success:true,
+          message:"Password updated Successfully"
+        })
+      }
+      else{
+        return res.status(403).json({
+          success:false,
+          message:"password not correct"
+        })
+      }
+
+
+
+    } catch (error) {
+      console.log(error)
+        res.status(500).json({
+          success:false,
+          message:"something went wrong"
+        })
+      
+    }
 }
