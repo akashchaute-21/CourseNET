@@ -3,7 +3,8 @@ const router = express.Router();
 
 const {
     createCourse,
-   // getAllCourses,
+   getCatCourses,
+   getCat,
     editCourse,
     getCourseDetails,
     getInstructorCourses,
@@ -48,7 +49,8 @@ const {
   
 //   // Courses can Only be Created by Instructors
   router.post("/createCourse", auth, isInstructor, createCourse)
-
+  router.post("/getCatCourses", auth, isStudent, getCatCourses)
+  router.get("/getCat", auth, getCat)
   router.get("/getInstructorCourses", auth, isInstructor,getInstructorCourses)
 //   //Add a Section to a Course
 //router.post("/addSection", auth, isInstructor, createSection)

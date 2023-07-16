@@ -232,3 +232,63 @@ exports.editCourse=async(req,res)=>{
            })
     }
 }
+
+exports.getCatCourses  = async(req,res)=>{
+    try {
+        const {category}=req.body;
+        let catDet=[];
+        
+        if(category==="ALL"){
+              catDet=await course.find({}).populate("instructor")
+        }
+        else{
+            const cat =await  Category.findOne({name:category})
+            console.log(cat)
+        catDet = await course.find({category:cat._id}).populate("instructor")
+        }
+        
+        if(!catDet){
+            return res.status(400).json({
+                success:false,
+                message:"no course found"
+               })
+        }
+      
+        return res.status(200).json({
+            success:true,
+            message:"courses fectched successfully",
+            data:catDet
+           })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success:false,
+            message:error.message
+           })
+    }
+}
+
+exports.getCat  = async(req,res)=>{
+    try {
+       
+        const catDet = await Category.find({})
+        if(!catDet){
+            return res.status(400).json({
+                success:false,
+                message:"no category found"
+               })
+        }
+    //   console.log(catDet)
+        return res.status(200).json({
+            success:true,
+            message:"category fectched successfully",
+            data:catDet
+           })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success:false,
+            message:error.message
+           })
+    }
+}

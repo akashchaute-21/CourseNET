@@ -9,6 +9,7 @@ import {
   addCourseDetails,
   editCourseDetails,
   fetchCourseCategories,
+  getCat,
 } from "../../../../../services/operations/courseDetailsAPI"
 import { setCourse, setStep } from "../../../../../slices/courseSlice"
 import { COURSE_STATUS } from "../../../../../utils/constants"
@@ -33,32 +34,14 @@ export default function CourseInformationForm() {
   const [courseCategories, setCourseCategories] = useState([])
 
   useEffect(() => {
-    const getCategories = async () => {
-      setLoading(true)
-      const categories = [
-        {
-          id:1,
-          name:"IIT JEE"
-        },
-        {
-          id:2,
-          name:"Creative"
-        },
-        {
-          id:3,
-          name:"10th & 12th"
-        },
-       {
-          id:4,
-          name:"Entertainment"
-        }
-      ]
-      if (categories.length > 0) {
-        // console.log("categories", categories)
-        setCourseCategories(categories)
-      }
-      setLoading(false)
+    const fetchCat = async()=>{
+      
+      const res = await getCat(token);
+      res.unshift({_id:1,name:"ALL"})
+      setCourseCategories(res);
     }
+    fetchCat()
+  
     // if form is in edit mode
     if (editCourse) {
       // console.log("data populated", editCourse)
@@ -71,7 +54,7 @@ export default function CourseInformationForm() {
       setValue("courseRequirements", course.instructions)
       setValue("courseImage", course.thumbnail)
     }
-    getCategories()
+
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
