@@ -6,7 +6,7 @@ import { resetCourseState } from "../../../slices/courseSlice"
 
 export default function SidebarLink({ link, iconName }) {
   const Icon = Icons[iconName]
-  const location = useLocation()
+  const location = useLocation() 
   const dispatch = useDispatch()
 
   const matchRoute = (route) => {

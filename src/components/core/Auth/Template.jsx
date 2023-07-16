@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import frameImg from "../../../assets/Images/frame.png"
 import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
-
+ 
 function Template({ title, description1, description2, image, formType }) {
   const { loading } = useSelector((state) => state.auth)
 
@@ -13,8 +13,8 @@ function Template({ title, description1, description2, image, formType }) {
       {loading ? (
         <div className="spinner"></div>
       ) : (
-        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12">
-          <div className="mx-auto w-11/12 max-w-[450px] md:mx-0">
+        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12 ">
+          <div className="mx-auto w-11/12 max-w-[500px] md:mx-0 border border-richblack-900 text-richblack-300 rounded-xl p-7  bg-[#2c2c6c] scroll-smooth hover:bg-transparent ease-in duration-300">
             <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
               {title}
             </h1>
@@ -22,7 +22,7 @@ function Template({ title, description1, description2, image, formType }) {
               <span className="text-richblack-100">{description1}</span>{" "}
               <span className="font-edu-sa font-bold italic text-blue-100">
                 {description2}
-              </span>
+              </span> 
             </p>
             {formType === "signup" ? <SignupForm /> : <LoginForm />}
           </div>

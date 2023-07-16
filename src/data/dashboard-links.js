@@ -42,4 +42,11 @@ export const sidebarLinks = [
     type: ACCOUNT_TYPE.STUDENT,
     icon: "VscArchive",
   },
+  {
+    id: 8,
+    name: "Buy Courses",
+    path: "/dashboard/new-courses",
+    type: ACCOUNT_TYPE.STUDENT,
+    icon: "VscAdd",
+  },
 ]

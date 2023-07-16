@@ -7,15 +7,15 @@ const contactDetails = [
   {
     icon: "HiChatBubbleLeftRight",
     heading: "Chat on us",
-    description: "Our friendly team is here to help.",
-    details: "info@studynotion.com",
+    description: "Our team is here to help.",
+    details: "info@courseNET.com",
   },
   {
     icon: "BiWorld",
     heading: "Visit us",
-    description: "Come and say hello at our office HQ.",
+    description: "Come at our office.",
     details:
-      "Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016",
+      "16 Bengaluru - Mysuru Road, Bangalore-560075",
   },
   {
     icon: "IoCall",
@@ -25,7 +25,7 @@ const contactDetails = [
   },
 ]
 
-const ContactDetails = () => {
+const ContactDetails = () => { 
   return (
     <div className="flex flex-col gap-6 rounded-xl bg-richblack-800 p-4 lg:p-6">
       {contactDetails.map((ele, i) => {
