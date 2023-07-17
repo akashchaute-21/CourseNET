@@ -22,7 +22,7 @@ import VideoDetails from "./components/core/ViewCourse/VideoDetails"
 import About from "./pages/About"
 import Catalog from "./pages/Catalog"
 import Contact from "./pages/Contact"
-import CourseDetails from "./pages/CourseDetails"
+import CourseDetails from "../src/components/core/Dashboard/NewCourse/CourseDetails"
 import Dashboard from "./pages/Dashboard"
 import Error from "./pages/Error"
 import ForgotPassword from "./pages/ForgotPassword"
@@ -132,6 +132,7 @@ function App() {
               />
               <Route path="/dashboard/cart" element={<Cart />} />
               <Route path="/dashboard/new-courses" element={<NewCourses/>} />
+              <Route path="/dashboard/new-courses/:id" element={<CourseDetails/>} />
             </>
           )}
           <Route path="dashboard/settings" element={<Settings />} />
