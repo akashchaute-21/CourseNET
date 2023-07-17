@@ -1,8 +1,13 @@
-const {instance} = require("../config/instance")
 const User  = require("../models/UserSchema")
 const Course  = require("../models/Course")
 const sendMail = require("../utils/sendMail")
-const { default: mongoose, trusted } = require("mongoose")
+const { default: mongoose} = require("mongoose")
+const Razorpay = require("razorpay") 
+require("dotenv").config()
+RP_inst= new Razorpay({
+    key_id:process.env.RAZORPAY_KEY_ID,
+    key_secret:process.env.RAZORPAY_KEY_SECRET
+})
 
 
 //capture the payment and initiate the razor pay 
@@ -46,14 +51,14 @@ exports.capturePayment= async (req,res)=>{
         })
     }
    //order create 
-    const amount = course.price;
-    const currency= "INR";
+  
+    
 
     const options={
-        amount:amount *10,
-        currency,
+        amount:course.price *10,
+        currency:"INR",
         notes:{
-            courseID:courseId,
+          courseId,
             userId
         }
     }
