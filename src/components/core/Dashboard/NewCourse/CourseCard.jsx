@@ -12,8 +12,14 @@ function CourseCard({course}) {
         </div>
    <div>By:{course.instructor.firstname+" "+course.instructor.lastname} </div>
         <div className='flex justify-between align-bottom mt-4'>
-        <a  className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900'>Add to Cart</a>
-        <a  className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 ' target="__blank">View Course</a>
+        <button
+           // disabled={loading}
+            type="button"
+          //  onClick={goBack}
+            className="mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 "
+          >
+            View Course
+          </button>        <a  className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 ' target="__blank">View Course</a>
         </div>
       
         </article>
