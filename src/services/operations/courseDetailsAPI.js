@@ -13,6 +13,8 @@ const {
   EDIT_COURSE_API,
   CREATE_SECTION_API,
   CREATE_SUBSECTION_API,
+  GET_CATEGORY_COURSES_API,
+  GET_CATEGORY_API,
   UPDATE_SECTION_API,
   UPDATE_SUBSECTION_API,
   DELETE_SECTION_API,
@@ -151,6 +153,64 @@ export const createSection = async (data, token) => {
   return result
 }
 
+
+export async function getCat(token) {
+  const toastId = toast.loading("Loading...")
+  let result = []
+  try {
+    const response = await apiConnector(
+      "GET",
+      GET_CATEGORY_API,
+      null,
+      {
+        Authorization: `Bearer ${token}`,
+      }
+    )
+    console.log(
+      "GET_CATEGORY_COURSES_API API RESPONSE............",
+      response
+    )
+   
+    if (!response.data.success) {
+      throw new Error(response.data.message)
+    }
+    result = response.data.data
+  } catch (error) {
+    console.log("ERROR",error)
+    toast.error("Could Not Get CATEGORY")
+  }
+  toast.dismiss(toastId)
+  return result
+}
+
+export async function getCatCourses(data,token) {
+  const toastId = toast.loading("Loading...")
+  let result = []
+  try {
+    const response = await apiConnector(
+      "POST",
+      GET_CATEGORY_COURSES_API,
+      {category:data},
+      {
+        Authorization: `Bearer ${token}`,
+      }
+    )
+    console.log(
+      "GET_CATEGORY_COURSES_API API RESPONSE............",
+      response
+    )
+   
+    if (!response.data.success) {
+      throw new Error(response.data.message)
+    }
+    result = response.data.data
+  } catch (error) {
+    console.log("ERROR",error)
+    toast.error("Could Not Get cATEGORY WISE Courses")
+  }
+  toast.dismiss(toastId)
+  return result
+}
 // create a subsection
 export const createSubSection = async (data, token) => {
   let result = null
