@@ -39,8 +39,8 @@ const cartSlice = createSlice({
       toast.success("Course added to cart")
     },
     removeFromCart: (state, action) => {
-      const courseId = action.payload
-      const index = state.cart.findIndex((item) => item._id === courseId)
+      const course = action.payload
+      const index = state.cart.findIndex((item) => item._id === course._id)
 
       if (index >= 0) {
         // If the course is found in the cart, remove it
@@ -53,6 +53,9 @@ const cartSlice = createSlice({
         localStorage.setItem("totalItems", JSON.stringify(state.totalItems))
         // show toast
         toast.success("Course removed from cart")
+      }
+      else{
+        console.log("nhi huva error aaya")
       }
     },
     resetCart: (state) => {

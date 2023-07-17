@@ -125,7 +125,7 @@ useEffect(()=>{
       {isOpen &&  (
         <div className="absolute right-0 mt-40 bg-[#2c2c6c] rounded-md shadow-lg">
            <ul className="py-1">
-          {cats.map((cat,index)=>{
+          {cats.map((cat)=>{
             return ( <li>
               <a onClick={()=>{setSelCat(cat.name); toggleDropdown()}} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{cat.name}</a>
             </li>)
@@ -153,7 +153,7 @@ useEffect(()=>{
      }
      
       </div>))}
-      <div className="grid mx-auto w-[350px] xl:w-fit grid-cols-1 xl:grid-cols-3 sm:grid-cols-1 gap-7 mb-12">
+      {/* <div className="grid mx-auto w-[350px] xl:w-fit grid-cols-1 xl:grid-cols-3 sm:grid-cols-1 gap-7 mb-12">
         {
           data.map(({id, image, title, github, demo}) => {
             return(
@@ -165,16 +165,16 @@ useEffect(()=>{
             <h3 className='font-semibold mt-2 text-xl'>{title}</h3>
             </div>
             {/* <div className='flex flex-end'> */}
-            <div className='flex justify-between align-bottom mt-4'>
+            {/* <div className='flex justify-between align-bottom mt-4'>
             <a href={github} className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900'>Buy Now</a>
             <a  onClick={() => handleCourseDetails(id)} className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 hover:cursor-pointer' target="__blank">Course Details</a>
-            </div>
+            </div> */}
             {/* </div> */}
-            </article>
-            )
-            }) 
-        }
-      </div>
+            {/* </article> */}
+            {/* ) */}
+             {/* })  */}
+        
+      {/* </div> */} 
     </section>
   )
 }   
