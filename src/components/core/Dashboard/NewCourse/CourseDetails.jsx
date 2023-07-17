@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const CourseDetailsPage = () => {
-  const { courseId } = useParams();
+  const { id } = useParams();
   const [course, setCourse] = useState(null);
 
-  // Fetch the course details based on the courseId
+  // Fetch the course details based on the id
   useEffect(() => {
     // Make an API call or fetch the course details from the server
     // Set the fetched course details in the state
-    // For example:
     const fetchCourseDetails = async () => {
       try {
-        const response = await fetch(`/api/courses/${courseId}`);
+        const response = await fetch(`/api/courses/${id}`);
         const data = await response.json();
         setCourse(data);
       } catch (error) {
@@ -21,7 +22,7 @@ const CourseDetailsPage = () => {
     };
 
     fetchCourseDetails();
-  }, [courseId]);
+  }, [id]);
 
   return (
     <div>
@@ -46,3 +47,17 @@ const CourseDetailsPage = () => {
 };
 
 export default CourseDetailsPage;
+
+// import React from 'react'
+
+// function CourseDetails() {
+//   const { id } = useParams();
+//   return (
+//     <div>
+//       hi thereee
+//     </div>
+//   )
+// }
+
+// export default CourseDetails
+

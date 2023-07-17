@@ -154,7 +154,7 @@ function CourseDetails() {
                 <span>{`(${ratingAndReviews.length} reviews)`}</span>
                 <span>{`${studentsEnroled.length} students enrolled`}</span>
               </div>
-              <div>
+              <div> 
                 <p className="">
                   Created By {`${instructor.firstName} ${instructor.lastName}`}
                 </p>
