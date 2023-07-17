@@ -9,6 +9,7 @@ import IMG7 from '../../../../assets/NewCourses/portfolio7.png'
 import IMG8 from '../../../../assets/NewCourses/portfolio8.png'
 import { useState } from 'react';
 import {AiOutlineDown} from 'react-icons/ai'
+import {useNavigate} from 'react-router-dom'
 
 
 const data = [
@@ -63,6 +64,12 @@ const [isOpen, setIsOpen] = useState(false);
 
 const toggleDropdown = () => {
   setIsOpen(!isOpen);
+};
+
+const navigate = useNavigate();
+
+const handleCourseDetails = () => {
+  navigate(`/courses/${id}`);
 };
 
   return (
@@ -120,7 +127,7 @@ const toggleDropdown = () => {
             {/* <div className='flex flex-end'> */}
             <div className='flex justify-between align-bottom mt-4'>
             <a href={github} className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900'>Buy Now</a>
-            <a href={demo} className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 ' target="__blank">Course Details</a>
+            <a  onClick={handleCourseDetails(id)} className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 ' target="__blank">Course Details</a>
             </div>
             {/* </div> */}
             </article>
