@@ -37,7 +37,6 @@ const CourseDetailsPage = () => {
           <p>Thumbnail: {course.thumbnail}</p>
           <p>Category: {course.category}</p>
           <p>Students Enrolled: {course.studentsEnrolled.length}</p>
-          {/* Render other course details as needed */}
         </div>
       ) : (
         <p>Loading...</p>
