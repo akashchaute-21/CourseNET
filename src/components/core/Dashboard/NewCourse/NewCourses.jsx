@@ -19,7 +19,7 @@ import CourseCard from './CourseCard'
 
 const data = [
   {
-    id:1, 
+    id:1,
     image: IMG8,
     title: 'Prayaas-Social Club of VNIT Website',
     github: 'https://github.com/',

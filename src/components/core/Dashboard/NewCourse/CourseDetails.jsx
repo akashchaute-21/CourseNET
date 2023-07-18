@@ -45,16 +45,16 @@ const CourseDetailsPage = () => {
       {course ? (
         <div className=" flex  justify-center items-center w-screen h-screen gap-20 transform -translate-y-8">
         <div className="flex flex-row justify-center items-center gap-10">
-        <img src={course.thumbnail} alt="" className="w-[420px] h-[350px] mb-5 rounded-lg transform transition-transform duration-300 hover:scale-105"/>
+        <img src={course.thumbnail} alt="" className="w-[520px] h-[410px] mb-5 rounded-lg transform transition-transform duration-300 hover:scale-105 translate-y-2"/>
         
         <div className="flex flex-col gap-4  border text-white rounded-xl px-16 py-10  bg-[#2c2c6c] scroll-smooth hover:bg-transparent ease-in duration-300 border-black justify-center ">
-        <h2 className="text-3xl font-bold uppercase text-[#3abde1]">{course.courseName}</h2>
-        <p className="text-pure-greys-50 text-xl font-semibold ">{course.courseDescription}</p>
-        <p className="text-pure-greys-50">Instructor: {course.instructor.firstname}</p>
-        <p className="text-pure-greys-50">What You Will Learn: {course.whatYouWillLearn}</p>
-        <p className="text-pure-greys-50">Category: {course.category}</p>
-        <p className="text-pure-greys-50">Students Enrolled: {course.studentsEnrolled.length}</p>
-        <p className="text-caribbeangreen-100 font-semibold">Price: ${course.price}</p>
+        <h2 className="text-5xl font-bold uppercase text-[#3abde1]">{course.courseName}</h2>
+        <p className="text-pure-greys-50 text-2xl font-semibold ">{course.courseDescription}</p>
+        <p className="text-pure-greys-50 text-xl">Instructor: {course.instructor.firstname}</p>
+        <p className="text-pure-greys-50 text-xl">What You Will Learn: <br /> {course.whatYouWillLearn}</p>
+        <p className="text-pure-greys-50 text-xl">Category: {course.category}</p>
+        <p className="text-pure-greys-50 text-xl">Students Enrolled: {course.studentsEnrolled.length}</p>
+        <p className="text-caribbeangreen-100 font-semibold text-xl">Price: ${course.price}</p>
         </div>
       </div>
       </div>
