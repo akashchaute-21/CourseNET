@@ -147,11 +147,13 @@ exports.verifyPayment = async (req,res)=>{
         }
        },{new:true});
        console.log(userDet)
-       await Course.findByIdAndUpdate({$in:courses.map((course)=> new mongoose.Types.ObjectId(course))},{
+       const cid  =courses.map((course)=> new mongoose.Types.ObjectId(course))
+       console.log("cid",cid)
+       await Course.updateMany({_id:{$in:cid}},{
         $push:{
             studentsEnrolled:new mongoose.Types.ObjectId(userId)
         }
-       })
+       },{multi:true})
        return res.status(200).json({
         success:true,
         message:"signature verified",

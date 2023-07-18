@@ -38,7 +38,11 @@ function CourseCard({course}) {
           {user.courses.includes(course._id)?  <button
            // disabled={loading}
             type="button"
-           // onClick={() => }
+            onClick={() => {
+              navigate( 
+                `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`
+              )
+            }}
             className="mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 "
           >
            Go to Course

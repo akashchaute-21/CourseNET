@@ -148,6 +148,7 @@ useEffect(()=>{
      :(<div className="grid mx-auto w-[350px] xl:w-fit grid-cols-1 xl:grid-cols-3 sm:grid-cols-1 gap-7 mb-12">
      {
        courses.map((course)=>{
+        if(course.status!=="Draft")
         return( <CourseCard course={course}/>)
        })
      }

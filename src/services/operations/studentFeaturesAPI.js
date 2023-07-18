@@ -85,8 +85,9 @@ export async function BuyCourse(
         email: "xyz@gmail.com",
       },
       handler: function (response) {
-        console.log(response)
+       // console.log(response)
         const order_id = orderResponse.data.data.id;
+        console.log("..............courses",courses)
        verifyPayment({ ...response,order_id ,courses }, token, navigate, dispatch)
       },
     }
