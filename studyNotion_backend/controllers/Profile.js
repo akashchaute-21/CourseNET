@@ -4,6 +4,8 @@ const Course = require("../models/Course")
 const cloudinary =require("cloudinary").v2
 const {uploadFile} = require("../utils/fileUploader")
 const { destroyMedia } = require("../utils/destroyMedia")
+const { default: mongoose } = require("mongoose")
+
 
 
 exports.updateProfile = async(req,res)=>{
@@ -51,7 +53,7 @@ exports.updateProfile = async(req,res)=>{
 exports.deleteAccount = async(req,res)=>{
     try {
         //get user id
-    const userId = req.user.Id;
+    const userId = req.user.id;
     //check valid id
     const userDetail = await User.findById(userId);
     if(!userDetail){
@@ -71,7 +73,13 @@ exports.deleteAccount = async(req,res)=>{
         }
     })
     //delete user
-    await destroyMedia(userDet.image)
+   const response= await destroyMedia(userDetail.image)
+   if(!response){
+    return res.status(500).json({
+      success:false,
+      message:"could not destroy media files"
+  })
+   }
     await User.findByIdAndDelete(userId);
     //return user
     return res.status(200).json({
@@ -79,6 +87,7 @@ exports.deleteAccount = async(req,res)=>{
         message:" account deleted "
     })
     } catch (error) {
+      console.log(error)
         return res.status(500).json({
             success:false,
             message:error.message
@@ -115,7 +124,7 @@ exports.updateDisplayPicture = async(req,res)=>{
 
       console.log(displayPicture);
     
-   const result= await uploadFile(displayPicture,"Display Photos");
+   const result= await uploadFile(displayPicture,"Display_Photos");
       userDet = await User.findByIdAndUpdate(req.user.id,{$set:{image:result.secure_url}},{new:true}).populate("aditionaldetails")
      console.log(userDet)
 
