@@ -9,11 +9,13 @@ export default function RenderTotalAmount() {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch = useDispatch()  
 
-  const handleBuyCourse = () => {
+  const  handleBuyCourse = () => { 
+   // console.log("this is running",user)
     const courses = cart.map((course) => course._id)
-    BuyCourse(token, courses, user, navigate, dispatch)
+    
+    BuyCourse(token, courses, user, navigate, dispatch,total)
   }
 
   return (
@@ -22,7 +24,7 @@ export default function RenderTotalAmount() {
       <p className="mb-6 text-3xl font-medium text-yellow-100">₹ {total}</p>
       <IconBtn
         text="Buy Now"
-        onclick={handleBuyCourse}
+        onclick={()=>{handleBuyCourse()}}
         customClasses="w-full justify-center"
       />
     </div>

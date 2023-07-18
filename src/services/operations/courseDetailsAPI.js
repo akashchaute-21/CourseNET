@@ -21,7 +21,6 @@ const {
   DELETE_SUBSECTION_API,
   GET_ALL_INSTRUCTOR_COURSES_API,
   DELETE_COURSE_API,
-  GET_FULL_COURSE_DETAILS_AUTHENTICATED,
   CREATE_RATING_API,
   LECTURE_COMPLETION_API,
 } = courseEndpoints
@@ -378,7 +377,7 @@ export const getFullDetailsOfCourse = async (courseId, token) => {
   try {
     const response = await apiConnector(
       "POST",
-      GET_FULL_COURSE_DETAILS_AUTHENTICATED,
+      COURSE_DETAILS_API,
       {
         courseId,
       },

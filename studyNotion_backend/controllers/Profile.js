@@ -3,6 +3,7 @@ const User = require("../models/UserSchema")
 const Course = require("../models/Course")
 const cloudinary =require("cloudinary").v2
 const {uploadFile} = require("../utils/fileUploader")
+const { destroyMedia } = require("../utils/destroyMedia")
 
 
 exports.updateProfile = async(req,res)=>{
@@ -60,17 +61,17 @@ exports.deleteAccount = async(req,res)=>{
     })
 }
     //delete profile
-    const profileId = userDetail.aditiionalDetails;
+    const profileId = userDetail.aditionaldetails;
     await Profile.findByIdAndDelete(profileId);
     //delete user from enrolled courses
-    const courses = await userDetail.courses;
-    await Course.findByIdAndUpdate(courses,{
+    const courses = userDetail.courses;
+    await Course.findByIdAndUpdate({$in:courses.map((course)=> new mongoose.Types.ObjectId(course))},{
         $pull:{
-            userId
+            studentsEnrolled:new mongoose.Types.ObjectId(userId)
         }
     })
     //delete user
-
+    await destroyMedia(userDet.image)
     await User.findByIdAndDelete(userId);
     //return user
     return res.status(200).json({

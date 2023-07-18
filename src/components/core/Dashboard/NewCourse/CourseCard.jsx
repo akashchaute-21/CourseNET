@@ -6,11 +6,12 @@ import { useNavigate } from 'react-router-dom';
 function CourseCard({course}) {
   const dispatch = useDispatch();
   const {cart} = useSelector((state)=>state.cart)
+  const{ user} = useSelector((state)=>state.profile)
  const navigate =useNavigate();
   const handleCourseDetails = (id) => {
     navigate(`/courses/${id}`);
   };
-
+ console.log(user)
   return (
      
     <article key={course._id} className='border border-richblack-900 text-richblack-300 rounded-xl p-7  bg-[#2c2c6c] scroll-smooth hover:bg-transparent ease-in duration-300'>
@@ -33,8 +34,16 @@ function CourseCard({course}) {
             className="mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 "
           >
             View Course
-          </button>     
-         {!cart.some((c)=>c._id===course._id)? <button
+          </button> 
+          {user.courses.includes(course._id)?  <button
+           // disabled={loading}
+            type="button"
+           // onClick={() => }
+            className="mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 "
+          >
+           Go to Course
+          </button>
+         :(!cart.some((c)=>c._id===course._id)? <button
            // disabled={loading}
             type="button"
             onClick={() => {dispatch(addToCart(course))}}
@@ -48,7 +57,7 @@ function CourseCard({course}) {
             className="mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 "
           >
             Remove
-          </button>  }
+          </button>  )}
         </div>
       
         </article>

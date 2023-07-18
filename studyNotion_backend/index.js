@@ -4,6 +4,7 @@ const dbconnect = require("./config/database")
 const userRouter = require("./routes/User.js")
 const profileRouter = require("./routes/Profile")
 const courseRouter = require("./routes/Course")
+const paymentRouter = require("./routes/Payment")
 const app = express();
 
 const cors = require('cors');
@@ -21,6 +22,7 @@ app.use(cors());
 app.use("/auth",userRouter);
 app.use("/profile",profileRouter);
 app.use("/course",courseRouter);
+app.use("/payment",paymentRouter);
 
 
 
