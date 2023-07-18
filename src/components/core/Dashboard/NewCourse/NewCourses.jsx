@@ -153,8 +153,8 @@ useEffect(()=>{
      }
      
       </div>))}
-      {/* <div className="grid mx-auto w-[350px] xl:w-fit grid-cols-1 xl:grid-cols-3 sm:grid-cols-1 gap-7 mb-12">
-        {
+      {/* <div className="grid mx-auto w-[350px] xl:w-fit grid-cols-1 xl:grid-cols-3 sm:grid-cols-1 gap-7 mb-12"> */}
+        {/* {
           data.map(({id, image, title, github, demo}) => {
             return(
               <article key={id} className='border border-richblack-900 text-richblack-300 rounded-xl p-7  bg-[#2c2c6c] scroll-smooth hover:bg-transparent ease-in duration-300'>
@@ -164,17 +164,17 @@ useEffect(()=>{
             <div className='flex flex-col justify-center items-center'>
             <h3 className='font-semibold mt-2 text-xl'>{title}</h3>
             </div>
-            {/* <div className='flex flex-end'> */}
-            {/* <div className='flex justify-between align-bottom mt-4'>
+            <div className='flex flex-end'>
+            <div className='flex justify-between align-bottom mt-4'>
             <a href={github} className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900'>Buy Now</a>
             <a  onClick={() => handleCourseDetails(id)} className='mt-6 rounded-[8px] bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 hover:cursor-pointer' target="__blank">Course Details</a>
-            </div> */}
-            {/* </div> */}
-            {/* </article> */}
-            {/* ) */}
-             {/* })  */}
+            </div> 
+            </div> 
+            </article>
+            )
+            })} */}
         
-      {/* </div> */} 
+      {/* </div> */}
     </section>
   )
 }   
