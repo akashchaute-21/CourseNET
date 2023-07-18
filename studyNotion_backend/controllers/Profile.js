@@ -75,6 +75,7 @@ exports.deleteAccount = async(req,res)=>{
     })
     //delete user
    const response= await destroyMedia(userDetail.image)
+   console.log(response)
    if(!response){
     return res.status(500).json({
       success:false,

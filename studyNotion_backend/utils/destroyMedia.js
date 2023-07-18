@@ -8,9 +8,9 @@ exports.destroyMedia= async(url)=>{
    await cloudinary.uploader.destroy(public_id).then((err,re)=>{
       if(err)
       {console.log(err)
-        return true;
+        return false;
     }  
       else {console.log(re);
-      return false;}
+      return true;}
     });
 }

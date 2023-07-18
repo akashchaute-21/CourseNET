@@ -28,7 +28,7 @@ const CourseDetailsPage = () => {
     fetchData();
   }, [courseId]);
   console.log("this is rumming")
-  console.log("course",course)
+  //console.log(course)
   // return (
   //  !course?<div>no course details</div>: 
   //  <div>
@@ -52,7 +52,7 @@ const CourseDetailsPage = () => {
         <p className="text-pure-greys-50 text-2xl font-semibold ">{course.courseDescription}</p>
         <p className="text-pure-greys-50 text-xl">Instructor: {course.instructor.firstname}</p>
         <p className="text-pure-greys-50 text-xl">What You Will Learn: <br /> {course.whatYouWillLearn}</p>
-        <p className="text-pure-greys-50 text-xl">Category: {course.category}</p>
+        <p className="text-pure-greys-50 text-xl">Category: {course.category.name}</p>
         <p className="text-pure-greys-50 text-xl">Students Enrolled: {course.studentsEnrolled.length}</p>
         <p className="text-caribbeangreen-100 font-semibold text-xl">Price: ${course.price}</p>
         </div>
