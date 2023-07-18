@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { fetchCourseDetails } from "../../../../services/operations/courseDetailsAPI";
 import { useSelector } from "react-redux";
+import IMG from "../../../../assets/Images/FoundingStory.png"
 
 const CourseDetailsPage = () => {
   const { courseId } = useParams();
@@ -42,16 +43,21 @@ const CourseDetailsPage = () => {
     <div>
      
       {course ? (
-        <div>
-          <h2>{course.courseName}</h2>
-          <p>{course.courseDescription}</p>
-          <p>Instructor: {course.instructor.firstname}</p> 
-          <p>What You Will Learn: {course.whatYouWillLearn}</p>
-            <p>Price: {course.price}</p>   
-           <p>Thumbnail: {course.thumbnail}</p>
-          <p>Category: {course.category}</p>
-          <p>Students Enrolled: {course.studentsEnrolled.length}</p>
-        </div> 
+        <div className=" flex  justify-center items-center w-screen h-screen gap-20 transform -translate-y-8">
+        <div className="flex flex-row justify-center items-center gap-10">
+        <img src={course.thumbnail} alt="" className="w-[520px] h-[410px] mb-5 rounded-lg transform transition-transform duration-300 hover:scale-105 translate-y-2"/>
+        
+        <div className="flex flex-col gap-4  border text-white rounded-xl px-16 py-10  bg-[#2c2c6c] scroll-smooth hover:bg-transparent ease-in duration-300 border-black justify-center ">
+        <h2 className="text-5xl font-bold uppercase text-[#3abde1]">{course.courseName}</h2>
+        <p className="text-pure-greys-50 text-2xl font-semibold ">{course.courseDescription}</p>
+        <p className="text-pure-greys-50 text-xl">Instructor: {course.instructor.firstname}</p>
+        <p className="text-pure-greys-50 text-xl">What You Will Learn: <br /> {course.whatYouWillLearn}</p>
+        <p className="text-pure-greys-50 text-xl">Category: {course.category}</p>
+        <p className="text-pure-greys-50 text-xl">Students Enrolled: {course.studentsEnrolled.length}</p>
+        <p className="text-caribbeangreen-100 font-semibold text-xl">Price: ${course.price}</p>
+        </div>
+      </div>
+      </div>
         ) : ( 
          <p>Loading...</p> 
         )}

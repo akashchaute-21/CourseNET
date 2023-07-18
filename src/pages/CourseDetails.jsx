@@ -215,7 +215,7 @@ function CourseDetails() {
                   <span>{response.data?.totalDuration} total length</span>
                 </div>
                 <div>
-                  <button
+                  <button 
                     className="text-yellow-25"
                     onClick={() => setIsActive([])}
                   >

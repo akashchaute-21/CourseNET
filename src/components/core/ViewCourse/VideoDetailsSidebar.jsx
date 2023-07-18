@@ -101,7 +101,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     <div
                       className={`flex gap-3  px-5 py-2 ${
                         videoBarActive === topic._id
-                          ? "bg-yellow-200 font-semibold text-richblack-800"
+                          ? "bg-[#4db5ff] font-semibold text-richblack-800"
                           : "hover:bg-richblack-900"
                       } `}
                       key={i}
