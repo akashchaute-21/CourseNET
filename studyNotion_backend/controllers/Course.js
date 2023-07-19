@@ -6,6 +6,8 @@ const section = require("./../models/Section")
 const subSection = require("./../models/SubSection")
 const {uploadFile} = require("../utils/fileUploader")
 const { default: mongoose } = require("mongoose")
+const { delSec } = require("./Section")
+const { destroyMedia } = require("../utils/destroyMedia")
 
 
 
@@ -113,10 +115,26 @@ exports.getInstructorCourses = async(req,res)=>{
    }
 }
 
+exports.delCourse = async(courseId)=>{
+     try
+   { const courseDet = await course.findByIdAndDelete(courseId)
+    courseDet.studentsEnrolled.push(courseDet.instructor)
+    await user.updateMany({_id:{$in:courseDet.studentsEnrolled}},{
+        $pull:{
+            courses:courseId
+        }
+    },{multi:true})
+    courseDet.courseContent.map((secId)=>{delSec(secId)});
+    return true;
+}catch(error){
+    return false
+}
+   
+}
 exports.deleteCourse=async(req,res)=>{
     try {
         const{ courseId} = req.body;
-      const response=  await course.findByIdAndDelete(courseId);
+     const response = await this.delCourse(courseId);
      if(!response){
        
         return res.status(400).json({
@@ -202,18 +220,48 @@ exports.getCourseDetails = async (req,res)=>{
 
 exports.editCourse=async(req,res)=>{
     try {
-        const {courseId,category}= req.body;
-        if(category)
-       { const cat =await Category.findOne({name:category});
-          det.category=cat._id
-      }
-        const det = req.body;
-        delete det.courseId;
-       
+        const data= req.body;
+        const courseId = data.courseId;
+        delete data.courseId
 
+        const courseDet = course.findById(courseId)
+        if(data.category){ 
+           await Category.findByIdAndUpdate(courseDet.category,{
+                $pull:{
+                    courses:courseId
+                }
+            });
+          const cat = Category.findOne({name:data.category})
+          data.category=cat._id
+
+      }
+       let imageUrl = courseDet.thumbnail
+      if(req.files.thumbnail){
+            await destroyMedia(imageUrl)
+           const cloudRes= await uploadFile(req.files.thumbnail,"Thumbnails")
+           imageUrl = cloudRes.secure_url
+      }
+
+    
       const updatedCourse=  await course.findByIdAndUpdate(courseId,{
-        $set:det
-      },{new:true}).populate("courseContent")
+        $set:{
+            ...data,
+            thumbnail:imageUrl
+        }
+      },{new:true}).populate({
+        path:"instructor",
+        populate:{
+            path:"aditionaldetails"
+        }
+    }).populate("category").populate("ratingAndReviews").populate({
+        path:"courseContent",
+        populate:{
+            path:"subSection"
+        }
+    });
+       
+    
+  
       if(!updatedCourse){
         return res.status(400).json({
             success:false,
@@ -244,7 +292,17 @@ exports.getCatCourses  = async(req,res)=>{
         else{
             const cat =await  Category.findOne({name:category})
             console.log(cat)
-        catDet = await course.find({category:cat._id}).populate("instructor")
+        catDet = await course.find({category:cat._id}).populate({
+            path:"instructor",
+            populate:{
+                path:"aditionaldetails"
+            }
+        }).populate("category").populate("ratingAndReviews").populate({
+            path:"courseContent",
+            populate:{
+                path:"subSection"
+            }
+        })
         }
         
         if(!catDet){

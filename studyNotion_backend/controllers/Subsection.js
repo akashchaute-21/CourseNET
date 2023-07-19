@@ -1,6 +1,7 @@
 const SubSec = require("../models/SubSection");
 const Sec = require("../models/Section");
 const {  uploadFile } = require("../utils/fileUploader");
+const { destroyMedia } = require("../utils/destroyMedia");
 
 
 exports.createSubSec = async(req,res)=>{
@@ -29,7 +30,7 @@ exports.createSubSec = async(req,res)=>{
           $push:{
               subSection:newSubSec._id
           }
-      },{new:true})
+      },{new:true}).populate("subSection")
       //return response
       return res.status(200).json({
           success:true,
@@ -47,29 +48,47 @@ exports.createSubSec = async(req,res)=>{
 //upadate subsection
 exports.updateSubSec = async(req,res)=>{
     try {
-        const {SubsectionId,title,timeDuration, description }=req.body;
+        const data=req.body;
         //validate 
-        if(!sectionId ||  !title ||!timeDuration ||!description||!video){
-            return res.status(500).json({
-                success:false,
-                message:"all fields are required"
-            })
+        const secId = data.sectionId;
+        const subSecId = data.subSectionId;
+        delete  data.sectionId
+        delete data.subSectionId
+        
+        const subSecDet = await SubSec.findById(subSecId);
+        let Vurl = subSecDet.videoUrl
+        if(req.files?.video){
+            console.log("this is running")
+            const cloudRes = await uploadFile(req.files.video,"Lecture_Videos");
+            await destroyMedia(subSecDet.videoUrl,'video');
+            Vurl = cloudRes.secure_url
+          //  delete data.video
+            
         }
+        // if(!sectionId ||  !title ||!timeDuration ||!description||!video){
+        //     return res.status(500).json({
+        //         success:false,
+        //         message:"all fields are required"
+        //     })
+        // }
 
         //update the subsection
-        await SubSec.findByIdAndUpdate(SubsectionId,{
-            title,
-          timeDuration,
-          description,
-          videoUrl:uploadVideo.secure_url
-
+        await SubSec.findByIdAndUpdate(subSecId,{
+            $set:{
+                ...data,
+                videoUrl:Vurl
+            }
         })
+
+        const updatedSec = await Sec.findById(secId).populate("subSection")
         return res.status(200).json({
             success:true,
-            message:"subsection updated success  fully"
+            message:"subsection updated success  fully",
+            data:updatedSec
         })
     
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             success:false,
             message:error.message
@@ -79,15 +98,30 @@ exports.updateSubSec = async(req,res)=>{
 
 exports.deleteSubSec = async(req,res)=>{
     try {
-        const {sectonId} = req.body;
+        const { subSectionId, sectionId} = req.body;
         //delete from db
-        await SubSec.findByIdAndDelete(sectionId);
+        const subsecDet = await SubSec.findByIdAndDelete(subSectionId)
+      // console.log(subSectionId)
+        await destroyMedia(subsecDet.videoUrl,"video")
+      const UpdatedSec =   await Sec.findByIdAndUpdate(sectionId,{
+        $pull:{
+            subSection:subSectionId
+        }
+      }).populate("subSection");
+      if(!UpdatedSec){
+        return res.status(500).json({
+            success:false,
+            message:"could not delete subsection"
+        })
+      }
        // return res
         return res.status(200).json({
             success:true,
-            message:"subsection deleted success  fully"
+            message:"subsection deleted success  fully",
+            data:UpdatedSec
         })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             success:false,
             message:error.message

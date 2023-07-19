@@ -5,6 +5,7 @@ const cloudinary =require("cloudinary").v2
 const {uploadFile} = require("../utils/fileUploader")
 const { destroyMedia } = require("../utils/destroyMedia")
 const { default: mongoose } = require("mongoose")
+const { delCourse } = require("./Course")
 
 
 
@@ -55,7 +56,7 @@ exports.deleteAccount = async(req,res)=>{
         //get user id
     const userId = req.user.id;
     //check valid id
-    const userDetail = await User.findById(userId);
+    const userDetail = await User.findByIdAndDelete(userId);
     console.log(userDetail)
     if(!userDetail){
         return res.status(404).json({
@@ -63,26 +64,31 @@ exports.deleteAccount = async(req,res)=>{
             message:"no user found"
     })
 }
-    //delete profile
+  // delete profile
     const profileId = userDetail.aditionaldetails;
     await Profile.findByIdAndDelete(profileId);
+    if(userDetail.image) 
+    await destroyMedia(userDetail.image)
     //delete user from enrolled courses
-    const courses = userDetail.courses;
-    await Course.findByIdAndUpdate({$in:courses.map((course)=> new mongoose.Types.ObjectId(course))},{
+    const coursesId =userDetail.courses.map((course)=> new mongoose.Types.ObjectId(course));
+
+     if(userDetail.accounttype==="Student"){
+    await Course.updateMany({$in:coursesId},{
         $pull:{
             studentsEnrolled:new mongoose.Types.ObjectId(userId)
         }
+    },{multi:true})
+  }
+  else if(userDetail.accounttype==="Instructor"){
+     coursesId.map(async(cid)=>{if(!await delCourse(cid)){
+      return res.status(500).json({
+            success:false,
+             message:"could not delete one of courses"
+     })
+    }
     })
-    //delete user
-   const response= await destroyMedia(userDetail.image)
-   console.log(response)
-   if(!response){
-    return res.status(500).json({
-      success:false,
-      message:"could not destroy media files"
-  })
-   }
-    await User.findByIdAndDelete(userId);
+  }
+
     //return user
     return res.status(200).json({
         success:true,
@@ -92,7 +98,7 @@ exports.deleteAccount = async(req,res)=>{
       console.log(error)
         return res.status(500).json({
             success:false,
-            message:error.message
+            message:"could not delete profile"
         })
     }
 }
