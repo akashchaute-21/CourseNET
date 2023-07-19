@@ -2,11 +2,12 @@ const express = require("express");
 const fileupload = require("express-fileupload")
 const dbconnect = require("./config/database")
 const userRouter = require("./routes/User.js")
+const path = require("path");
 const profileRouter = require("./routes/Profile")
 const courseRouter = require("./routes/Course")
 const paymentRouter = require("./routes/Payment")
 const app = express();
-
+const port = process.env.port || 5000;
 const cors = require('cors');
 const { destroyMedia } = require("./utils/destroyMedia");
 app.use(express.json())
@@ -14,7 +15,6 @@ app.use(fileupload({
     useTempFiles:true,
     tempFileDir:'/tmp/'
 }));
-
 //connecting the database 
 dbconnect.dbconnect()
 
@@ -25,13 +25,17 @@ app.use("/profile",profileRouter);
 app.use("/course",courseRouter);
 app.use("/payment",paymentRouter);
 
-// app.get("/delvid",async(req,res)=>{
-//  await   destroyMedia("public_id","auto")
-//   res.json({
-//     message:"ho gaya"
-//   })
-// })
+// serving frontend
+app.use(express.static(path.join(__dirname, "./Frontend/build")));
 
-app.listen(process.env.PORT,()=>console.log("running on port ",process.env.PORT));
+app.get("*", (req, res) => {
+        res.sendFile(
+            path.join(__dirname, "./Frontend/build/index.html")),
+            function (err){
+                res.status(500).send(err);
+            }
+});
+
+app.listen(port,()=>console.log("running on port ",port));
 
 

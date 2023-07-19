@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.59cc7103.css",
+    "main.js": "/static/js/main.7a1903d3.js",
+    "static/media/portfolio1.gif": "/static/media/portfolio1.0c93ba299c2d65d742b4.gif",
+    "static/media/HomePage_Video.mp4": "/static/media/HomePage_Video.32b420254ed2a6ad08bf.mp4",
+    "static/media/FoundingStory.png": "/static/media/FoundingStory.16c29a0afccd5d4ec811.png",
+    "static/media/portfolio2.gif": "/static/media/portfolio2.700abf0cd90beb69d5af.gif",
+    "static/media/Instructor.png": "/static/media/Instructor.b1d6343c30c92d5f8da2.png",
+    "static/media/aboutus2.png": "/static/media/aboutus2.b521fb0b5b70185cafa8.png",
+    "static/media/aboutus3.png": "/static/media/aboutus3.3525dbaca7925beeb98d.png",
+    "static/media/aboutus1.png": "/static/media/aboutus1.73edbdd89710aeb86a35.png",
+    "static/media/portfolio5.png": "/static/media/portfolio5.a3d50b89346760c7620f.png",
+    "static/media/TimelineImage1.jpg": "/static/media/TimelineImage1.c2877ff8960e5dd8365b.jpg",
+    "static/media/Plan_your_lessons.svg": "/static/media/Plan_your_lessons.f123ccf442a2a364a459a7bbec807045.svg",
+    "static/media/Compare_with_others.svg": "/static/media/Compare_with_others.8e950efa990d53f34b35893a1e03cea1.svg",
+    "static/media/logo_courseNET2.png": "/static/media/logo_courseNET2.c5a73118002e176e9707.png",
+    "static/media/bghome.svg": "/static/media/bghome.de04eae287ff1d29f0b1.svg",
+    "static/media/portfolio6.jpg": "/static/media/portfolio6.72d1107e313049cf15a7.jpg",
+    "static/media/portfolio8.png": "/static/media/portfolio8.63b4e67290abd5acfdf3.png",
+    "static/media/rzp_logo.png": "/static/media/rzp_logo.db1cd7db1b52c2ed8e3d.png",
+    "static/media/portfolio7.png": "/static/media/portfolio7.8ed4abe387e8628cd4c0.png",
+    "static/media/portfolio4.png": "/static/media/portfolio4.1ae5a528663a1d9d409f.png",
+    "static/media/Know_your_progress.png": "/static/media/Know_your_progress.cf3ea1c51544985430d3.png",
+    "static/media/frame.png": "/static/media/frame.3a238e5f26d676376e1d.png",
+    "static/media/signup.webp": "/static/media/signup.acaf50bcb11d9aec44b4.webp",
+    "static/media/login.webp": "/static/media/login.5eeb0b81544a40330d4b.webp",
+    "static/media/Logo2.svg": "/static/media/Logo2.2d9e85de9e756cda89ffc4582338c939.svg",
+    "static/media/Logo1.svg": "/static/media/Logo1.73daf51e41d665299fc682bc3cb53878.svg",
+    "static/media/Logo3.svg": "/static/media/Logo3.0a56f78fead602f0d54c55ddcdf7e616.svg",
+    "static/media/Logo4.svg": "/static/media/Logo4.5da4c6e0c53e6745b25529891ef82458.svg",
+    "index.html": "/index.html",
+    "main.59cc7103.css.map": "/static/css/main.59cc7103.css.map",
+    "main.7a1903d3.js.map": "/static/js/main.7a1903d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59cc7103.css",
+    "static/js/main.7a1903d3.js"
+  ]
+}
