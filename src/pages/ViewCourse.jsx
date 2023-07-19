@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Outlet, useParams } from "react-router-dom"
 
-import CourseReviewModal from "../components/core/ViewCourse/CourseReviewModal"
 import VideoDetailsSidebar from "../components/core/ViewCourse/VideoDetailsSidebar"
 import { getFullDetailsOfCourse } from "../services/operations/courseDetailsAPI"
 import {
@@ -45,7 +44,6 @@ export default function ViewCourse() {
           </div>
         </div>
       </div>
-      {reviewModal && <CourseReviewModal setReviewModal={setReviewModal} />}
     </>
   )
 }

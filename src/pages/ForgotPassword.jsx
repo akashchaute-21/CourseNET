@@ -22,7 +22,7 @@ function ForgotPassword() {
         <div className="spinner"></div>
       ) : (
         <div className="max-w-[500px] p-4 lg:p-8">
-          <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
+          <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-300">
             {!emailSent ? "Reset your password" : "Check email"}
           </h1>
           <p className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100">
@@ -49,7 +49,7 @@ function ForgotPassword() {
             )}
             <button
               type="submit"
-              className="mt-6 w-full rounded-[8px] bg-yellow-50 py-[12px] px-[12px] font-medium text-richblack-900"
+              className="mt-6 w-full rounded-[8px] bg-blue-100 py-[12px] px-[12px] font-medium text-richblack-900"
             >
               {!emailSent ? "Sumbit" : "Resend Email"}
             </button>

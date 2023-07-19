@@ -11,6 +11,7 @@ exports.destroyMedia= async(url)=>{
         return false;
     }  
       else {console.log(re);
-      return true;}
+      return true;
+    }
     });
 }

@@ -5,8 +5,6 @@ import { useNavigate, useParams } from "react-router-dom"
 import "video-react/dist/video-react.css"
 import { useLocation } from "react-router-dom"
 import { BigPlayButton, Player } from "video-react"
-
-import { markLectureAsComplete } from "../../../services/operations/courseDetailsAPI"
 import { updateCompletedLectures } from "../../../slices/viewCourseSlice"
 import IconBtn from "../../Common/IconBtn"
 
@@ -156,17 +154,6 @@ const VideoDetails = () => {
     }
   }
 
-  const handleLectureCompletion = async () => {
-    setLoading(true)
-    const res = await markLectureAsComplete(
-      { courseId: courseId, subsectionId: subSectionId },
-      token
-    )
-    if (res) {
-      dispatch(updateCompletedLectures(subSectionId))
-    }
-    setLoading(false)
-  }
 
   return (
     <div className="flex flex-col gap-5 text-white">
@@ -194,14 +181,6 @@ const VideoDetails = () => {
               }}
               className="full absolute inset-0 z-[100] grid h-full place-content-center font-inter"
             >
-              {!completedLectures.includes(subSectionId) && (
-                <IconBtn
-                  disabled={loading}
-                  onclick={() => handleLectureCompletion()}
-                  text={!loading ? "Mark As Completed" : "Loading..."}
-                  customClasses="text-xl max-w-max px-4 mx-auto"
-                />
-              )}
               <IconBtn
                 disabled={loading}
                 onclick={() => {
