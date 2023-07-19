@@ -8,6 +8,7 @@ const paymentRouter = require("./routes/Payment")
 const app = express();
 
 const cors = require('cors');
+const { destroyMedia } = require("./utils/destroyMedia");
 app.use(express.json())
 app.use(fileupload({
     useTempFiles:true,
@@ -24,7 +25,12 @@ app.use("/profile",profileRouter);
 app.use("/course",courseRouter);
 app.use("/payment",paymentRouter);
 
-
+// app.get("/delvid",async(req,res)=>{
+//  await   destroyMedia("public_id","auto")
+//   res.json({
+//     message:"ho gaya"
+//   })
+// })
 
 app.listen(process.env.PORT,()=>console.log("running on port ",process.env.PORT));
 

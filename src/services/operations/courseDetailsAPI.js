@@ -261,8 +261,10 @@ export const updateSection = async (data, token) => {
 export const updateSubSection = async (data, token) => {
   let result = null
   const toastId = toast.loading("Loading...")
+  console.log(...data)
   try {
     const response = await apiConnector("POST", UPDATE_SUBSECTION_API, data, {
+      "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
     })
     console.log("UPDATE SUB-SECTION API RESPONSE............", response)

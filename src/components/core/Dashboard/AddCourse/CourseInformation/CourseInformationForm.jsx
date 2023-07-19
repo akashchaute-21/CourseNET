@@ -120,7 +120,7 @@ export default function CourseInformationForm() {
         //   )
         // }
         if (currentValues.courseImage !== course.thumbnail) {
-          formData.append("thumbnailImage", data.courseImage)
+          formData.append("thumbnail", data.courseImage)
         }
         // console.log("Edit Form data: ", formData)
         setLoading(true)
