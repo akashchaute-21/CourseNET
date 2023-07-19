@@ -8,7 +8,7 @@ const courseRouter = require("./routes/Course")
 const paymentRouter = require("./routes/Payment")
 require("dotenv").config()
 const app = express();
-const port =  process.env.PORT ;
+const PORT =  5000 || process.env.PORT;
 const cors = require('cors');
 
 app.use(express.json())
@@ -37,6 +37,6 @@ app.get("*", (req, res) => {
             }
 });
 
-app.listen(port,()=>console.log("running on port ",port));
+app.listen(PORT,()=>console.log("running on port ",PORT));
 
 
