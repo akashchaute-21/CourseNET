@@ -6,8 +6,9 @@ const path = require("path");
 const profileRouter = require("./routes/Profile")
 const courseRouter = require("./routes/Course")
 const paymentRouter = require("./routes/Payment")
+require("dotenv").config()
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 const { destroyMedia } = require("./utils/destroyMedia");
 app.use(express.json())
