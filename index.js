@@ -8,9 +8,9 @@ const courseRouter = require("./routes/Course")
 const paymentRouter = require("./routes/Payment")
 require("dotenv").config()
 const app = express();
-const port = 3000 ||  process.env.PORT ;
+const port =  process.env.PORT ;
 const cors = require('cors');
-const { destroyMedia } = require("./utils/destroyMedia");
+
 app.use(express.json())
 app.use(fileupload({
     useTempFiles:true,
