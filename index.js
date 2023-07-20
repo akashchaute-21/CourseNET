@@ -8,9 +8,10 @@ const courseRouter = require("./routes/Course")
 const paymentRouter = require("./routes/Payment")
 require("dotenv").config()
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT =  5000 || process.env.PORT;
 const cors = require('cors');
-const { destroyMedia } = require("./utils/destroyMedia");
+const { default: mongoose } = require("mongoose");
+
 app.use(express.json())
 app.use(fileupload({
     useTempFiles:true,
@@ -18,6 +19,19 @@ app.use(fileupload({
 }));
 //connecting the database 
 dbconnect.dbconnect()
+
+mongoose.connect(process.env.MONGODB_URL,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+}).then(()=>{
+     console.log("database connected successfully")
+     app.listen(PORT,()=>console.log("running on port ",PORT));
+    })
+.catch((e)=>
+{console.log(e,"database connection failed")
+process.exit(1);
+                    })
+
 
 app.use(cors());
 
@@ -37,6 +51,6 @@ app.get("*", (req, res) => {
             }
 });
 
-app.listen(port,()=>console.log("running on port ",port));
+
 
 
