@@ -1,5 +1,5 @@
 const { default: mongoose } = require("mongoose");
-const User = require("./../models/UserSchema")
+const User = require("../../models/UserSchema")
 
 const jwt = require("jsonwebtoken")
 
