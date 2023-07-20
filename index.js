@@ -10,6 +10,7 @@ require("dotenv").config()
 const app = express();
 const PORT =  5000 || process.env.PORT;
 const cors = require('cors');
+const { default: mongoose } = require("mongoose");
 
 app.use(express.json())
 app.use(fileupload({
@@ -17,8 +18,19 @@ app.use(fileupload({
     tempFileDir:'/tmp/'
 }));
 //connecting the database 
-await dbconnect.dbconnect()
+dbconnect.dbconnect()
 
+mongoose.connect(process.env.MONGODB_URL,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+}).then(()=>{
+     console.log("database connected successfully")
+     app.listen(PORT,()=>console.log("running on port ",PORT));
+    })
+.catch((e)=>
+{console.log(e,"database connection failed")
+process.exit(1);
+                    })
 
 
 app.use(cors());
@@ -39,6 +51,6 @@ app.get("*", (req, res) => {
             }
 });
 
-app.listen(PORT,()=>console.log("running on port ",PORT));
+
 
 
