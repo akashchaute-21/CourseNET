@@ -32,6 +32,7 @@ export default function Upload({
   }
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    // accepting only if image
     accept: !video
       ? { "image/*": [".jpeg", ".jpg", ".png"] }
       : { "video/*": [".mp4"] },
@@ -103,7 +104,7 @@ export default function Upload({
             </div>
             <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
               Drag and drop an {!video ? "image" : "video"}, or click to{" "}
-              <span className="font-semibold text-yellow-50">Browse</span> a
+              <span className="font-semibold text-pure-greys-400">Browse</span> a
               file
             </p>
             <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">
