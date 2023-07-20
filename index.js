@@ -17,7 +17,9 @@ app.use(fileupload({
     tempFileDir:'/tmp/'
 }));
 //connecting the database 
-dbconnect.dbconnect()
+await dbconnect.dbconnect()
+
+
 
 app.use(cors());
 

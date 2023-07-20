@@ -8,8 +8,8 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET 
   });
 
-exports.dbconnect = () =>{
-    mongoose.connect(process.env.MONGODB_URL,{
+exports.dbconnect = async() =>{
+   await mongoose.connect(process.env.MONGODB_URL,{
         useNewUrlParser:true,
         useUnifiedTopology:true
     }).then(()=>{ console.log("database connected successfully")})
