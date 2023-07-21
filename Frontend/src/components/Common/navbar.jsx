@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai"
-import { BsChevronDown } from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
@@ -59,10 +58,13 @@ function Navbar() {
   }
 
   return (
+    // <div
+    //   className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
+    //     location.pathname !== "/" ? "bg-richblack-800" : ""
+    //   } transition-all duration-200`}
+    // >
     <div
-      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
-        location.pathname !== "/" ? "bg-richblack-800" : ""
-      } transition-all duration-200`}
+      className={`flex h-14 items-center justify-center transition-all duration-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
@@ -71,26 +73,20 @@ function Navbar() {
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
-          <ul className="flex gap-x-7 text-richblack-25">
+          <ul className="flex gap-x-10 text-richblack-25">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
-                {link.title === "Catalog" ? (
-                  <>
-                    
-                  </>
-                ) : (
                   <Link to={link?.path}>
                     <p
                       className={`${
                         matchRoute(link?.path)
-                          ? "text-[#4db5ff]"
-                          : "text-richblack-25"
+                          ? "text-tblue2 font-semibold"
+                          : "text-tblue2 font-semibold"
                       }`}
                     >
                       {link.title}
                     </p>
                   </Link>
-                )}
               </li>
             ))}
           </ul>

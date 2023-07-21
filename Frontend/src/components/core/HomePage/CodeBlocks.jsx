@@ -41,8 +41,8 @@ const CodeBlocks = ({
       </div>
 
       {/* Section 2 */}
-      <div className="h-fit code-border flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[470px]">
-        {backgroundGradient}
+      <div className="h-fit code-border rounded-lg flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[470px]">
+        {backgroundGradient} 
         {/* Indexing */}
         <div className="text-center flex flex-col   w-[10%] select-none text-richblack-400 font-inter font-bold ">
           <p>1</p>

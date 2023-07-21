@@ -20,7 +20,7 @@ function Home() {
         {/* Become a Instructor Button */}
         <Link to={"/signup"}>
           <div className="group mx-auto mt-16 w-fit rounded-full uppercase font-bold  drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-105">
-            <div className="flex flex-row items-center gap-2 rounded-full border-2 px-8 py-[5px] text-black hover:border-black hover:bg-pure-greys-700 hover:text-white transition duration-300 ease-in">
+            <div className="flex flex-row items-center gap-2 rounded-full border-2 px-8 py-[5px] text-tblue2  hover:bg-tblue2  hover:text-white transition duration-300 ease-in">
               <p>Become an Instructor</p>
               <FaArrowRight />
             </div>
@@ -31,12 +31,12 @@ function Home() {
         <div className="flex flex-row">
         <div className="flex flex-col w-[50%] items-center justify-center">
           {/* Heading */}
-        <div className="text-center text-caribbeangreen-100 text-4xl font-semibold w-[80%] justify-center">
+        <div className="text-center text-tblue2 text-4xl font-semibold w-[80%] justify-center">
           Empower Your Future with
           <HighlightText text={"Coding Skills"} />
         </div>
         {/* Sub Heading */}
-        <div className="mt-3 w-[90%] text-center text-lg font-bold text-richblack-300 justify-center">
+        <div className="mt-3 w-[90%] text-center text-lg font-bold text-[#576875] justify-center">
         Unleash your coding potential with our online courses. Learn at your own pace, from anywhere in the world. Gain access to a wide range of resources, hands-on projects, quizzes, and personalized instructor feedback.
         </div>
 
@@ -50,7 +50,7 @@ function Home() {
 
         {/* Video */}
         <div className="w-[50%] flex items-center justify-center">
-        <div className="flex shadow-[10px_-5px_50px_-5px] shadow-[#4db5ff] w-[45%] justify-end">
+        <div className="flex shadow-[10px_-5px_50px_-5px] shadow-iconBlue w-[45%] justify-end">
           <video
             className="rounded-lg"
             muted
@@ -125,7 +125,7 @@ function Home() {
       </div>
 
       {/* Section 2 */}
-      <div className="bg-pure-greys-25 text-richblack-700">
+      <div className="bg-twhite text-tblue2">
 
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 ">
           {/* Job that is in Demand - Section 1 */}

@@ -8,9 +8,18 @@ module.exports = {
       mono: ["Roboto Mono", "monospace"],
     },
     colors: {
-      white: "#fff",
+      white: "#fff", 
       black: "#000",
       transparent: "#ffffff00",
+      //template customized colors
+      tyellow1: "#fdefc4", //upr ka yellow background
+      tyellow2: "#fed9ad", //upr ka yellow ke niche ka background
+      tyellow3: "#fff7e0", // buttons wala yellow
+      tblue1: "#d1e5d9 ",  // upr ka yellow ke niche ka blue background
+      tblue2: "#324457",  // jo footer, button mai use hua hai
+      twhite: "#eaeaf3",  // upr ka blue background ke niche ka white background
+      tpink: "#f5c7b7",  // upr ka white background ke niche ka pink background
+      iconBlue: "#4db5ff",
       richblack: {
         5: "#F1F2FF",
         25: "#DBDDEA",

@@ -9,17 +9,17 @@ const TimeLine = [
     {
       Logo: Logo1,
       Heading: "Leadership",
-      Description: "Fully committed to the success company",
+      Description: "Totally committed to the success company",
     },
     {
       Logo: Logo2,
       Heading: "Responsibility",
-      Description: "Students will always be our top priority",
+      Description: "Our top priority will always be students",
     },
     {
       Logo: Logo3,
       Heading: "Flexibility",
-      Description: "The ability to switch is an important skills",
+      Description: "Switching between skils is an important skill itself",
     },
     {
       Logo: Logo4,
@@ -38,7 +38,7 @@ const TimelineSection = () => {
             return (
               <div className="flex flex-col lg:gap-3" key={i}>
                 <div className="flex gap-6" key={i}>
-                  <div className="w-[52px] h-[52px] bg-white rounded-full flex justify-center items-center shadow-[#00000012] shadow-[0_0_62px_0]">
+                  <div className="w-[52px] h-[52px] bg-white rounded-full flex justify-center items-center ">
                     <img src={ele.Logo} alt="" />
                   </div>
                   <div>
@@ -77,7 +77,7 @@ const TimelineSection = () => {
           <img
             src={TimeLineImage}
             alt="timelineImage"
-            className="shadow-white shadow-[20px_20px_0px_0px] object-cover h-[500px] "
+            className="shadow-tblue2 shadow-[20px_20px_0px_0px] object-cover h-[500px] "
           />
         </div>
       </div>
