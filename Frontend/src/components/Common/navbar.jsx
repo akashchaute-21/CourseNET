@@ -105,14 +105,14 @@ function Navbar() {
           )}
           {token === null && (
             <Link to="/login">
-              <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              <button className={`rounded-[8px] font-semibold border-2 border-tblue2 bg-tyellow3 px-[12px] py-[8px] text-tblue2 hover:bg-tblue2 hover:text-tyellow3 transition-all duration-200 ${location.pathname !== "/" ? "bg-richblack-800" : ""}`}>
                 Log in
               </button>
             </Link>
           )}
           {token === null && (
             <Link to="/signup">
-              <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              <button className="rounded-[8px] font-semibold border-2 border-tblue2 bg-tyellow3 px-[12px] py-[8px] text-tblue2 hover:bg-tblue2 hover:text-tyellow3 transform transition duration-500">
                 Sign up
               </button>
             </Link>
