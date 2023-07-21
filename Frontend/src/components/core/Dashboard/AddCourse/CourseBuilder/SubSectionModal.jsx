@@ -125,9 +125,10 @@ export default function SubSectionModal({
 
   return (
     <div className="fixed inset-0 z-[1000] !mt-0 grid h-screen w-screen place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
-      <div className="my-10 w-11/12 max-w-[700px] rounded-lg border border-richblack-400 bg-richblack-800">
+      {/* view and edit course */}
+      <div className="my-10 w-11/12 max-w-[700px] rounded-lg border border-richblack-400 bg-tblue2">
         {/* Modal Header */}
-        <div className="flex items-center justify-between rounded-t-lg bg-richblack-700 p-5">
+        <div className="flex items-center justify-between rounded-t-lg bg-tblue2 p-5">
           <p className="text-xl font-semibold text-richblack-5">
             {view && "Viewing"} {add && "Adding"} {edit && "Editing"} Lecture
           </p>

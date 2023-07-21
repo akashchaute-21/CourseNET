@@ -15,8 +15,6 @@ import { setCourse, setStep } from "../../../../../slices/courseSlice"
 import { COURSE_STATUS } from "../../../../../utils/constants"
 import IconBtn from "../../../../Common/IconBtn"
 import Upload from "../Upload"
-import ChipInput from "./ChipInput"
-import RequirementsField from "./RequirementsField"
 
 export default function CourseInformationForm() {
   const {
@@ -148,7 +146,7 @@ export default function CourseInformationForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6"
+      className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-tblue2 p-6"
     >
       {/* Course Title */}
       <div className="flex flex-col space-y-2">
@@ -160,7 +158,7 @@ export default function CourseInformationForm() {
           placeholder="Enter Course Title"
           {...register("courseTitle", { required: true })}
           className="form-style w-full"
-        />
+        />  
         {errors.courseTitle && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
             Course title is required

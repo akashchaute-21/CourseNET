@@ -58,18 +58,13 @@ function Navbar() {
   }
 
   return (
-    // <div
-    //   className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
-    //     location.pathname !== "/" ? "bg-richblack-800" : ""
-    //   } transition-all duration-200`}
-    // >
     <div
-      className={`flex h-14 items-center justify-center transition-all duration-200`}
+      className={`flex h-14 items-center z-10 justify-center transition-all duration-200 bg-darkyellow shadow-md shadow-pure-greys-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
-          <img src={logo} alt="Logo" width={85} height={32} loading="lazy" className="rounded-lg"/>
+          <img src={logo} alt="Logo" width={125} height={65} loading="lazy" className="rounded-lg"/>
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
@@ -80,7 +75,7 @@ function Navbar() {
                     <p
                       className={`${
                         matchRoute(link?.path)
-                          ? "text-tblue2 font-semibold"
+                          ? "text-tblue2 font-semibold border-b-[3px] border-b-richblack-700"
                           : "text-tblue2 font-semibold"
                       }`}
                     >
@@ -95,7 +90,7 @@ function Navbar() {
         <div className="hidden items-center gap-x-4 md:flex">
           {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
             <Link to="/dashboard/cart" className="relative">
-              <AiOutlineShoppingCart className="text-2xl text-richblack-100" />
+              <AiOutlineShoppingCart className="text-2xl text-tblue2" />
               {totalItems > 0 && (
                 <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-richblack-600 text-center text-xs font-bold text-yellow-100">
                   {totalItems}
@@ -105,14 +100,14 @@ function Navbar() {
           )}
           {token === null && (
             <Link to="/login">
-              <button className={`rounded-[8px] font-semibold border-2 border-tblue2 bg-tyellow3 px-[12px] py-[8px] text-tblue2 hover:bg-tblue2 hover:text-tyellow3 transition-all duration-200 ${location.pathname !== "/" ? "bg-richblack-800" : ""}`}>
+              <button className={`rounded-[8px] font-semibold border-2 border-tblue2 px-[25px] py-[8px]  hover:bg-tblue2 hover:text-tyellow3 transition-all duration-200  ${location.pathname == "/login" ? " text-tyellow3 bg-tblue2" : "text-tblue2 bg-tyellow3"}`}>
                 Log in
               </button>
             </Link>
           )}
           {token === null && (
             <Link to="/signup">
-              <button className="rounded-[8px] font-semibold border-2 border-tblue2 bg-tyellow3 px-[12px] py-[8px] text-tblue2 hover:bg-tblue2 hover:text-tyellow3 transform transition duration-500">
+              <button className={`rounded-[8px] font-semibold border-2 border-tblue2 px-[25px] py-[8px]  hover:bg-tblue2 hover:text-tyellow3 transition-all duration-200 ${location.pathname == "/signup" ? " text-tyellow3 bg-tblue2" : "text-tblue2 bg-tyellow3"}`}>
                 Sign up
               </button>
             </Link>

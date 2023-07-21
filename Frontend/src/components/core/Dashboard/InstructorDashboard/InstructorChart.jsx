@@ -48,16 +48,18 @@ export default function InstructorChart({ courses }) {
   }
 
   return (
-    <div className="flex flex-1 flex-col gap-y-4 rounded-md bg-richblack-800 p-6">
-      <p className="text-lg font-bold text-richblack-5">Visualize</p>
-      <div className="space-x-4 font-semibold">
+    <div className="flex flex-1 flex-col gap-y-4 border-2 rounded-lg border-tblue2 bg-darkyellow p-6 justify-center">
+      <div className="flex flex-col justify-center items-center">
+      <p className="text-3xl font-bold text-tblue2">Visualize</p>
+      </div>
+      <div className="space-x-4 flex font-semibold border-b-2 border-b-tblue2 justify-center items-center ">
         {/* Button to switch to the "students" chart */}
         <button
           onClick={() => setCurrChart("students")}
-          className={`rounded-sm p-1 px-3 transition-all duration-200 ${
+          className={`p-1 px-3 transition-all duration-200 ${
             currChart === "students"
-              ? "bg-richblack-700 text-yellow-50"
-              : "text-yellow-400"
+            ? "bg-tblue2 text-tyellow2"
+            : "text-tblue2"
           }`}
         >
           Students
@@ -67,18 +69,19 @@ export default function InstructorChart({ courses }) {
           onClick={() => setCurrChart("income")}
           className={`rounded-sm p-1 px-3 transition-all duration-200 ${
             currChart === "income"
-              ? "bg-richblack-700 text-yellow-50"
-              : "text-yellow-400"
+            ? "bg-tblue2 text-tyellow2"
+            : "text-tblue2"
           }`}
         >
           Income
         </button>
       </div>
-      <div className="relative mx-auto aspect-square h-full w-full">
+
+      <div className="relative mx-auto aspect-square h-96 w-full">
         {/* Render the Pie chart based on the selected chart */}
         <Pie
           data={currChart === "students" ? chartDataStudents : chartIncomeData}
-          options={options}
+          options={options} 
         />
       </div>
     </div>

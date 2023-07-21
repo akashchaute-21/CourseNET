@@ -14,12 +14,12 @@ import HighlightText from "../components/core/HomePage/HighlightText"
 const About = () => {
   return (
     <div>
-      <section className="bg-richblack-100">
-        <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
+      <section>
+        <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-tblue2">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
           Pioneering Online Education for a 
             <HighlightText text={"Brighter Future"} />
-            <p className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]">
+            <p className="mx-auto mt-3 text-center text-base font-medium text-tblue2 lg:w-[95%]">
             CourseNET is revolutionizing online education, delivering cutting-edge courses, and empowering learners worldwide. With innovation, emerging technologies, and a vibrant community, we shape a brighter future for education. Embrace new possibilities and shape your own educational journey with us.
             </p>
           </header>
@@ -32,14 +32,14 @@ const About = () => {
         </div>
       </section>
 
-      <section className="border-b border-richblack-700">
+      <section className=" border-richblack-700 bg-tyellow2">
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-richblack-500">
           <div className="h-[100px] "></div>
           <Quote />
         </div>
       </section>
 
-      <section>
+      <section className="bg-twhite">
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-richblack-500">
           <div className="flex flex-col items-center gap-10 lg:flex-row justify-between">
             <div className="my-24 flex lg:w-[50%] flex-col gap-10">
@@ -68,7 +68,7 @@ const About = () => {
               <img
                 src={FoundingStory}
                 alt=""
-                className="shadow-[0_0_20px_0] shadow-[#FC6767] w-[80%]"
+                className="shadow-[0_0_20px_0] shadow-blue-300 w-[80%]"
               />
             </div>
           </div>
@@ -99,11 +99,12 @@ const About = () => {
       </section>
 
       <StatsComponenet />
-      <section className="mx-auto mt-20 mb-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white">
+      <section>
         {/* <LearningGrid /> */}
+        <div className=" mx-auto mt-20 mb-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white">
         <ContactFormSection />
+        </div>
       </section>
-
       <Footer />
     </div>
   )

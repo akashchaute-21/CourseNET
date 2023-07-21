@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table"
 
-import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 import { useState } from "react"
 import { FaCheck } from "react-icons/fa"
@@ -10,7 +9,6 @@ import { HiClock } from "react-icons/hi"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
 
-import { formatDate } from "../../../../services/formatDate"
 import {
   deleteCourse,
   fetchInstructorCourses,
@@ -25,7 +23,7 @@ export default function CoursesTable({ courses, setCourses }) {
   const [loading, setLoading] = useState(false)
   const [confirmationModal, setConfirmationModal] = useState(null)
   const TRUNCATE_LENGTH = 30
-
+ 
   const handleCourseDelete = async (courseId) => {
     setLoading(true)
     await deleteCourse({ courseId: courseId }, token)
@@ -41,19 +39,16 @@ export default function CoursesTable({ courses, setCourses }) {
 
   return (
     <>
-      <Table className="rounded-xl border border-richblack-800 ">
+      <Table className="rounded-lg border-2 border-richblack-800 ">
         <Thead>
-          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2">
-            <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
+          <Tr className="flex gap-x-10 rounde border-b-2 border-b-richblack-800 px-6 py-2">
+            <Th className="flex-1 text-left text-sm font-semibold uppercase text-tblue2">
               Courses
             </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
-              Duration
-            </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+            <Th className="text-left text-sm font-semibold uppercase text-tblue2">
               Price
             </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+            <Th className="text-left text-sm font-semibold uppercase text-tblue2">
               Actions
             </Th>
           </Tr>
@@ -61,16 +56,15 @@ export default function CoursesTable({ courses, setCourses }) {
         <Tbody>
           {courses?.length === 0 ? (
             <Tr>
-              <Td className="py-10 text-center text-2xl font-medium text-richblack-100">
+              <Td className="py-10 text-center text-2xl font-semibold text-tblue2">
                 No courses found
-                {/* TODO: Need to change this state */}
               </Td>
             </Tr>
           ) : (
             courses?.map((course) => (
               <Tr
                 key={course._id}
-                className="flex gap-x-10 border-b border-richblack-800 px-6 py-8"
+                className="flex gap-x-10 border-b-2 border-richblack-800 px-6 py-8"
               >
                 <Td className="flex flex-1 gap-x-4">
                   <img
@@ -79,10 +73,10 @@ export default function CoursesTable({ courses, setCourses }) {
                     className="h-[148px] w-[220px] rounded-lg object-cover"
                   />
                   <div className="flex flex-col justify-between">
-                    <p className="text-lg font-semibold text-richblack-5">
+                    <p className="text-xl font-semibold text-tblue2">
                       {course.courseName}
                     </p>
-                    <p className="text-xs text-richblack-300">
+                    <p className="text-sm text-tblue2">
                       {course.courseDescription.split(" ").length >
                       TRUNCATE_LENGTH
                         ? course.courseDescription
@@ -91,7 +85,7 @@ export default function CoursesTable({ courses, setCourses }) {
                             .join(" ") + "..."
                         : course.courseDescription}
                     </p>
-                    <p className="text-[12px] text-white">
+                    <p className="text-[13px] text-tblue2">
                       Students Enrolled: {course.studentsEnrolled.length}
                     </p>
                     {course.status === COURSE_STATUS.DRAFT ? (
@@ -109,13 +103,10 @@ export default function CoursesTable({ courses, setCourses }) {
                     )}
                   </div>
                 </Td>
-                <Td className="text-sm font-medium text-richblack-100">
-                  2hr 30min
-                </Td>
-                <Td className="text-sm font-medium text-richblack-100">
+                <Td className="text-sm font-medium text-tblue2">
                   ₹{course.price}
                 </Td>
-                <Td className="text-sm font-medium text-richblack-100 ">
+                <Td className="text-sm font-medium text-tblue2">
                   <button
                     disabled={loading}
                     onClick={() => {
