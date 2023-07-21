@@ -1,5 +1,5 @@
 
-const BASE_URL = 'https://successful-ray-pea-coat.cyclic.app'
+const BASE_URL = 'http://localhost:5000'
 
 // AUTH ENDPOINTS
 export const endpoints = { 

@@ -51,7 +51,7 @@ export default function CourseInformationForm() {
    //   setValue("courseTags", course.tag)
       setValue("courseBenefits", course.whatYouWillLearn)
       setValue("courseCategory", course.category)
-      setValue("courseRequirements", course.instructions)
+     // setValue("courseRequirements", course.instructions)
       setValue("courseImage", course.thumbnail)
     }
 
@@ -61,7 +61,7 @@ export default function CourseInformationForm() {
 
   const isFormUpdated = () => {
     const currentValues = getValues()
-    // console.log("changes after editing form values:", currentValues)
+    console.log("changes after editing form values:", currentValues)
     if (
       currentValues.courseTitle !== course.courseName ||
       currentValues.courseShortDesc !== course.courseDescription ||
@@ -69,8 +69,6 @@ export default function CourseInformationForm() {
     //  currentValues.courseTags.toString() !== course.tag.toString() ||
       currentValues.courseBenefits !== course.whatYouWillLearn ||
       currentValues.courseCategory._id !== course.category._id ||
-      currentValues.courseRequirements.toString() !==
-        course.instructions.toString() ||
       currentValues.courseImage !== course.thumbnail
     ) {
       return true
@@ -84,10 +82,11 @@ export default function CourseInformationForm() {
 
     if (editCourse) {
       // const currentValues = getValues()
-      // console.log("changes after editing form values:", currentValues)
+      console.log("changes after editing form values:",)
       // console.log("now course:", course)
       // console.log("Has Form Changed:", isFormUpdated())
       if (isFormUpdated()) {
+        console.log("yesssssss")
         const currentValues = getValues()
         const formData = new FormData()
         // console.log(data)
@@ -110,21 +109,12 @@ export default function CourseInformationForm() {
         if (currentValues.courseCategory._id !== course.category._id) {
           formData.append("category", data.courseCategory)
         }
-        // if (
-        //   currentValues.courseRequirements.toString() !==
-        //   course.instructions.toString()
-        // ) {
-        //   formData.append(
-        //     "instructions",
-        //     JSON.stringify(data.courseRequirements)
-        //   )
-        // }
         if (currentValues.courseImage !== course.thumbnail) {
           formData.append("thumbnail", data.courseImage)
         }
-        // console.log("Edit Form data: ", formData)
+       console.log("Edit Form data:........... ", ...formData)
         setLoading(true)
-        const result = await editCourseDetails(formData, token)
+       const result = await editCourseDetails(formData, token)
         setLoading(false)
         if (result) {
           dispatch(setStep(2))
@@ -235,11 +225,12 @@ export default function CourseInformationForm() {
             Choose a Category
           </option>
           {!loading &&
-            courseCategories?.map((category, indx) => (
-              <option key={indx} value={category?.name}>
+            courseCategories?.map((category, indx) => {
+              if(category.name=="ALL") return;
+              else return ( <option key={category._id} value={category?.name}>
                 {category?.name}
-              </option>
-            ))}
+              </option>)
+            })}
         </select>
         {errors.courseCategory && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
