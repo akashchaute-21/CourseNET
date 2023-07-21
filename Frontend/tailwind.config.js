@@ -20,6 +20,7 @@ module.exports = {
       twhite: "#eaeaf3",  // upr ka blue background ke niche ka white background
       tpink: "#f5c7b7",  // upr ka white background ke niche ka pink background
       iconBlue: "#4db5ff",
+      darkyellow: "#FEE69D",
       richblack: {
         5: "#F1F2FF",
         25: "#DBDDEA",
