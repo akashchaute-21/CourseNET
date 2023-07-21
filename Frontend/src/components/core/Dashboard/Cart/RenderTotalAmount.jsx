@@ -19,9 +19,27 @@ export default function RenderTotalAmount() {
   }
 
   return (
-    <div className="min-w-[280px] rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6">
-      <p className="mb-1 text-sm font-medium text-richblack-300">Total:</p>
-      <p className="mb-6 text-3xl font-medium text-yellow-100">₹ {total}</p>
+    <div className="min-w-[280px] rounded-md border-[1px] border-tblue2  p-6">
+ <div >
+      {cart.map((course)=>{
+        return (
+         <div className="grid grid-cols-[3.5fr,1fr]">
+              <p className="font-bold text-tblue2 text-lg ">{course?.courseName}</p>
+            <p className=" text-md text-align-last font-medium  text-tblue2  ">
+               {course?.price}
+              </p>  
+            </div> 
+        )
+      })}
+      </div>
+      <div className="h-[1px] my-4 w-[250px] bg-tblue2"></div>
+      <div className="grid my-2 grid-cols-[2.5fr,1fr]">
+              <p className="font-bold text-tblue2 text-2xl ">Total:</p>
+            <p className=" text-md  font-bold  text-tblue2  ">
+            ₹ {total}
+              </p>  
+            </div> 
+    
       <IconBtn
         text="Buy Now"
         onclick={()=>{handleBuyCourse()}}

@@ -8,57 +8,55 @@ import { removeFromCart } from "../../../../slices/cartSlice"
 export default function RenderCartCourses() {
   const { cart } = useSelector((state) => state.cart)
   const dispatch = useDispatch()
+ 
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1  flex-col">
       {cart.map((course, indx) => (
         <div
           key={course._id}
-          className={`flex w-full flex-wrap items-start justify-between gap-6 ${
-            indx !== cart.length - 1 && "border-b border-b-richblack-400 pb-6"
-          } ${indx !== 0 && "mt-6"} `}
-        >
-          <div className="flex flex-1 flex-col gap-4 xl:flex-row">
+          className="flex w-full   space-x-5 items-center m-2 p-2 border-2 border-tblue2 rounded-lg ">
             <img
               src={course?.thumbnail}
               alt={course?.courseName}
-              className="h-[148px] w-[220px] rounded-lg object-cover"
+              className="h-[150px] w-[220px] rounded-lg object-cover"
             />
-            <div className="flex flex-col space-y-1">
-              <p className="text-lg font-medium text-richblack-5">
+            <div className="flex w-full flex-col space-y-[-6px] ">
+
+              <p className="text-2xl font-bold text-tblue2">
                 {course?.courseName}
               </p>
-              <p className="text-sm text-richblack-300">
+              <div className="h-4"/>
+             <div className="flex text-md  items-center  gap-x-1"> 
+              <p className="font-bold text-tblue2 text-lg">Category:</p>
+              <p className="text-md font-medium text-tblue2 ">
                 {course?.category?.name}
               </p>
-              <div className="flex items-center gap-2">
-                <span className="text-yellow-5">4.5</span>
-                <ReactStars
-                  count={5}
-                  value={course?.ratingAndReviews?.length}
-                  size={20}
-                  edit={false}
-                  activeColor="#ffd700"
-                  emptyIcon={<FaStar />}
-                  fullIcon={<FaStar />}
-                />
-                <span className="text-richblack-400">
-                  {course?.ratingAndReviews?.length} Ratings
-                </span>
-              </div>
+              </div> 
+
+              <div className="flex text-md  items-center  gap-x-2"> 
+              <p className="font-bold text-tblue2 text-lg">By:</p>
+              <p className="text-md font-medium text-tblue2 mt-1">
+                {course?.instructor?.firstname+" "+course?.instructor?.lastname}
+              </p>
+              </div> 
+
+              <div className="flex text-md  items-center  gap-x-2"> 
+              <p className="font-bold text-tblue2 text-lg">Price:</p>
+              <p className="text-lg font-bold text-tblue2 mt-1">
+              ₹ {course?.price}
+              </p>
+              </div> 
             </div>
-          </div>
-          <div className="flex flex-col items-end space-y-2">
+
+          <div className="flex -translate-y-12 translate-x-3 items-end h-full w-full ">
             <button
-              onClick={() => dispatch(removeFromCart(course._id))}
-              className="flex items-center gap-x-1 rounded-md border border-richblack-600 bg-richblack-700 py-3 px-[12px] text-pink-200"
+              onClick={()=>{dispatch(removeFromCart(course))}}
+              className="flex items-center  gap-x-1 rounded-md bg-tblue2 py-3 px-[12px] text-tyellow2"
             >
               <RiDeleteBin6Line />
-              <span>Remove</span>
+              <span>Remove from Cart</span>
             </button>
-            <p className="mb-6 text-3xl font-medium text-yellow-100">
-              ₹ {course?.price}
-            </p>
-          </div>
+            </div>
         </div>
       ))}
     </div>
