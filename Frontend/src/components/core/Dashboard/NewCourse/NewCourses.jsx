@@ -106,22 +106,25 @@ useEffect(()=>{
 
   return (
     <section className='flex flex-col gap-5'>
-      <div className='flex flex-row'>
-      <div className='flex flex-col items-left justify-center gap-3 w-[80%]'>
-      <h2 className='font-bold text-4xl'>Explore different category of courses..</h2>
-      <h2 className='font-semibold text-3xl' >Explore To Learn and grow...</h2>
-      </div>
-
-
-      <div className="relative flex justify-center items-center">
+    
+      <div className='flex-row'>
+    
+      {/* <div >
+      <p className='font-bold  text-tblue2 text-4xl'>Explore different courses...</p>
+      <p className='font-semibold text-tblue2 text-3xl' >Learn to grow...</p>
+      </div> */}
+      
+      {/* <div className=" flex justify-center items-center">
       <button
         type="button"
         onClick={toggleDropdown}
-        className="rounded-[8px] flex flex-row justify-center items-center gap-2 bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 mb-8"
+        className="rounded-[8px]  justify-center items-center gap-2 bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 mb-8"
       >
       {selCat}<AiOutlineDown/>
       </button>
-
+      </div>*/}
+      </div> 
+     
       {isOpen &&  (
         <div className="absolute right-0 mt-40 bg-[#2c2c6c] rounded-md shadow-lg">
            <ul className="py-1">
@@ -134,10 +137,8 @@ useEffect(()=>{
           </ul>
         </div>
       )}
-      </div>
-
-
-      </div>
+    
+      <div className="h-[1px] my-4 w-[1000px] bg-tblue2"></div>
       { !courses?(
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
           <div className="spinner"></div>

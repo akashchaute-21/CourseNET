@@ -16,10 +16,8 @@ export default function Cart() {
 
   return (
     <>
-      <h1 className="mb-14 text-3xl font-medium text-richblack-5">Cart</h1>
-      <p className="border-b border-b-richblack-400 pb-2 font-semibold text-richblack-400">
-        {totalItems} Courses in Cart
-      </p>
+      <h1 className=" text-4xl font-bold text-tblue2">Cart</h1>
+      <div className="h-[1px] my-4 w-[1000px] bg-tblue2"></div>
       {total > 0 ? (
         <div className="mt-8 flex flex-col-reverse items-start gap-x-10 gap-y-6 lg:flex-row">
           <RenderCartCourses />
