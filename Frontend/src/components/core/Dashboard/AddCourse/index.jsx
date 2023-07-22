@@ -13,9 +13,9 @@ export default function AddCourse() {
           </div>
         </div>
 
-        <div className="flex sticky items-center justify-center">
+        {/* <div className="flex sticky items-center justify-center">
           <img src={IMGE} alt="" className="flex rounded-lg translate-x-10"/>
-        </div>
+        </div> */}
 
       </div>
   )

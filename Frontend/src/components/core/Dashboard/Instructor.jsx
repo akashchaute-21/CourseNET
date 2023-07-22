@@ -40,14 +40,12 @@ export default function Instructor() {
 
   return (
     <div >
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-tblue2">
+     
+        <h1 className="text-4xl mb-1 font-bold text-tblue2">
           My Dashboard
         </h1>
-        {/* <p className="font-medium text-tblue2">
-          This is my Dashboard
-        </p> */}
-      </div>
+        <div className="h-[2px] my-8 w-[1000px] bg-tblue2"></div>
+
       {loading ? (
         <div className="spinner"></div>
       ) :   courses.length > 0 ? (
