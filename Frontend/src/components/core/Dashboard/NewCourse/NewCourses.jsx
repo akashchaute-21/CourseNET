@@ -112,33 +112,31 @@ useEffect(()=>{
       <p className='font-bold flex  text-tblue2 text-4xl'>Explore different courses...</p>
       <p className='font-semibold flex text-tblue2 text-3xl' >Learn to grow...</p>
       </div>
-      <div className='flex flex-col font-semibold text-tblue2 '>
+      <div className='grid-cols-1 font-semibold text-tblue2 '>
         Sort By Categories:
       <button
         type="button"
         onClick={toggleDropdown}
-        className="rounded-full h-10 w-40 -translate-y-1 flex flex-row  justify-center items-center gap-2 bg-tblue2 py-[8px] px-[12px] font-medium text-tyellow2 "
+        className="rounded-full h-10 w-40 -translate-y-1 flex flex-row font-bold  justify-between items-center gap-2 bg-tblue2 py-[8px] px-[12px] text-tyellow2 "
       >
       {selCat}<AiOutlineDown/>
       </button>
-
-      </div>
-      </div>
-    
-
-     
-      {isOpen &&  (
-        <div className="absolute right-36 mt-16  bg-[#2c2c6c] rounded-md shadow-lg">
+        {isOpen &&  (
+        <div className="absolute bg-tblue2 rounded-md shadow-lg">
            <ul className="py-1">
           {cats.map((cat)=>{
             return ( <li>
-              <a onClick={()=>{setSelCat(cat.name); toggleDropdown()}} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">{cat.name}</a>
+              <a onClick={()=>{setSelCat(cat.name); toggleDropdown()}} className="block px-4 py-2 text-tyellow2 hover:bg-gray-200">{cat.name}</a>
             </li>)
           })}
         
           </ul>
         </div>
       )}
+      </div>
+      </div>
+    
+     
     
       <div className="h-[1px] my-4 w-[1000px] bg-tblue2"></div>
       { !courses?(
