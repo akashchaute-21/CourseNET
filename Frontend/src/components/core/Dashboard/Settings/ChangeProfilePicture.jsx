@@ -59,15 +59,15 @@ export default function ChangeProfilePicture() {
   }, [imageFile])
   return (
     <>
-      <div className="flex items-center justify-between rounded-lg border-2 border-richblack-700 bg-darkyellow p-8 px-12 text-tblue2">
+      <div className="flex items-center justify-between rounded-lg border-2 border-richblack-700 bg-tblue2 p-8 px-12 text-tyellow2">
         <div className="flex items-center gap-x-4">
           <img
             src={previewSource || user?.image}
             alt={`profile-${user?.firstName}`}
-            className="aspect-square w-[78px] rounded-full object-cover"
+            className="aspect-square w-[150px] rounded-full object-cover"
           />
           <div className="space-y-2 font-semibold ">
-            <p>Change Profile Picture</p>
+            <p className="text-xl">Change Display Photo</p>
             <div className="flex flex-row gap-3">
               <input
                 type="file"
@@ -79,7 +79,7 @@ export default function ChangeProfilePicture() {
               <button
                 onClick={handleClick}
                 disabled={loading}
-                className="cursor-pointer rounded-md bg-tblue2 py-2 px-5 font-semibold text-tyellow2"
+                className="cursor-pointer rounded-md bg-tyellow3 py-2 px-5 font-semibold text-tblue2"
               >
                 Select
               </button>

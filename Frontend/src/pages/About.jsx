@@ -6,7 +6,7 @@ import BannerImage2 from "../assets/Images/aboutus2.png"
 import BannerImage3 from "../assets/Images/aboutus3.png"
 import Footer from "../components/Common/Footer"
 import ContactFormSection from "../components/core/AboutPage/ContactFormSection"
-import LearningGrid from "../components/core/AboutPage/LearningGrid"
+
 import Quote from "../components/core/AboutPage/Quote"
 import StatsComponenet from "../components/core/AboutPage/Stats"
 import HighlightText from "../components/core/HomePage/HighlightText"
@@ -100,7 +100,7 @@ const About = () => {
 
       <StatsComponenet />
       <section>
-        {/* <LearningGrid /> */}
+      
         <div className=" mx-auto mt-20 mb-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white">
         <ContactFormSection />
         </div>

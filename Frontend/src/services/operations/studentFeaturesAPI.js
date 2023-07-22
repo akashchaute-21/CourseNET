@@ -77,7 +77,7 @@ export async function BuyCourse(
       currency: "INR",
       amount: "5000",
       order_id: orderResponse.data.data.id,
-      name: "StudyNotion",
+      name: "courseNET",
       description: "Thank you for Purchasing the Course.",
       image: rzpLogo,
       prefill: {

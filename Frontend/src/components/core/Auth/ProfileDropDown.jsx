@@ -28,7 +28,7 @@ export default function ProfileDropdown() {
         />
         <AiOutlineCaretDown className="text-sm text-tblue2" />
       </div>
-      {open && (
+      {open && (         
         <div
           onClick={(e) => e.stopPropagation()}
           className="absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-tblue2"
@@ -37,9 +37,16 @@ export default function ProfileDropdown() {
           <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
             <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-tyellow2 hover:bg-richblack-700 hover:text-richblack-25">
               <VscDashboard className="text-lg" />
-              Dashboard
+              Profile
             </div>
           </Link>
+          <Link to="/dashboard/settings" onClick={() => setOpen(false)}>
+            <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-tyellow2 hover:bg-richblack-700 hover:text-richblack-25">
+              <VscDashboard className="text-lg" />
+              Settings
+            </div>
+          </Link>
+  
           <div
             onClick={() => {
               dispatch(logout(navigate))

@@ -32,7 +32,7 @@ export default function EditProfile() {
       <form onSubmit={handleSubmit(submitProfileForm)}>
         {/* Profile Information */}
         <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-tblue2 p-8 px-12">
-          <h2 className="text-lg font-semibold text-richblack-5">
+          <h2 className="text-xl font-semibold text-tyellow3">
             Profile Information
           </h2>
           <div className="flex flex-col gap-5 lg:flex-row">

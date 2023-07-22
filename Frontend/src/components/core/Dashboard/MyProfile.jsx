@@ -11,9 +11,11 @@ export default function MyProfile() {
 
   return (
     <>
-      {/* <h1 className="mb-14 text-3xl font-large text-tblue2">
+      <h1 className="mb-1 text-4xl font-bold text-tblue2">
         Profile
-      </h1> */}
+      </h1>
+      <div className="h-[1.5px] my-8 w-[1000px] bg-tblue2"></div>
+
       
       <div className=" rounded-lg border-2 border-richblack-700 bg-darkyellow space-y-5 p-8 px-12">
       <div className="flex flex-row items-start justify-between ">
