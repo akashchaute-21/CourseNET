@@ -9,7 +9,6 @@ import { setUser } from "../../slices/profileSlice"
 const {
   PAYMENT_GET_ORDER_API,
   VERIFY_PAYMENT_API,
-  SEND_PAYMENT_SUCCESS_EMAIL_API,
 } = studentEndpoints
 
 // Load the Razorpay SDK from the CDN
@@ -132,22 +131,4 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
   dispatch(setPaymentLoading(false))
 }
 
-// Send the Payment Success Email
-async function sendPaymentSuccessEmail(response, amount, token) {
-  try {
-    await apiConnector(
-      "POST",
-      SEND_PAYMENT_SUCCESS_EMAIL_API,
-      {
-        orderId: response.razorpay_order_id,
-        paymentId: response.razorpay_payment_id,
-        amount,
-      },
-      {
-        Authorization: `Bearer ${token}`,
-      }
-    )
-  } catch (error) {
-    console.log("PAYMENT SUCCESS EMAIL ERROR............", error)
-  }
-}
+

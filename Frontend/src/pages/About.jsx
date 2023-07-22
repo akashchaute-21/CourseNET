@@ -2,8 +2,7 @@ import React from "react"
 
 import FoundingStory from "../assets/Images/FoundingStory.png"
 import BannerImage1 from "../assets/Images/aboutus1.png"
-import BannerImage2 from "../assets/Images/aboutus2.png"
-import BannerImage3 from "../assets/Images/aboutus3.png"
+import BannerImage2 from "../assets/Images/aboutus3.png"
 import Footer from "../components/Common/Footer"
 import ContactFormSection from "../components/core/AboutPage/ContactFormSection"
 
@@ -27,7 +26,7 @@ const About = () => {
           <div className="absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-45%] translate-y-[30%] grid-cols-2 gap-3 lg:gap-5">
             <img src={BannerImage1} alt="" />
             {/* <img src={BannerImage2} alt="" /> */}
-            <img src={BannerImage3} alt="" />
+            <img src={BannerImage2} alt="" />
           </div>
         </div>
       </section>
