@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Images
-
+import IMAGE from "../../assets/Logo/logo_courseNET2_white.png"; 
 
 // Icons
 import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
@@ -16,9 +16,9 @@ const Footer = () => {
       <div className="flex flex-row">
 
           <div className="flex flex-col w-[25%]">
-              <img src="" alt="logo here" />
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum corporis necessitatibus sunt. Odio distinctio, aperiam molestias libero corrupti nulla assumenda doloremque, fugiat placeat ducimus quis. Quia facilis omnis ea praesentium.
-          </div>
+              <img src= {IMAGE} alt="logo here" className="w-[70%] translate-x-5 -translate-y-5"/>
+                Discover, create, and share courses on courseNET – where knowledge meets opportunity. Join our vibrant community to connect, collaborate, and thrive in seamless course transactions. Together, let's redefine education.
+              </div>
           <div className="flex flex-col w-[25%] items-center ">
             <div className="flex flex-col">
             <div className="flex font-semibold text-twhite text-xl mb-3">Quick Links</div>
@@ -49,10 +49,10 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-row justify-between ">
-      <div className="flex">
+      <div className="flex text-white">
             © 2023 courseNET. All rights reserved.
         </div>
-        <div className="flex gap-5 text-2xl cursor-pointer">
+        <div className="flex gap-5 text-2xl cursor-pointer text-white">
         <FaFacebook/>
         <FaGoogle/>
         <FaTwitter/>

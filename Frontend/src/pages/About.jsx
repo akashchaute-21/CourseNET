@@ -24,9 +24,9 @@ const About = () => {
             </p>
           </header>
           <div className="sm:h-[70px] lg:h-[150px]"></div>
-          <div className="absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-50%] translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
+          <div className="absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-45%] translate-y-[30%] grid-cols-2 gap-3 lg:gap-5">
             <img src={BannerImage1} alt="" />
-            <img src={BannerImage2} alt="" />
+            {/* <img src={BannerImage2} alt="" /> */}
             <img src={BannerImage3} alt="" />
           </div>
         </div>
@@ -40,35 +40,14 @@ const About = () => {
       </section>
 
       <section className="bg-twhite">
-        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-richblack-500">
-          <div className="flex flex-col items-center gap-10 lg:flex-row justify-between">
-            <div className="my-24 flex lg:w-[50%] flex-col gap-10">
-              <h1 className="bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
-                Our Founding Story
-              </h1>
-              <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
-                Our e-learning platform was born out of a shared vision and
-                passion for transforming education. It all began with a group of
-                educators, technologists, and lifelong learners who recognized
-                the need for accessible, flexible, and high-quality learning
-                opportunities in a rapidly evolving digital world.
-              </p>
-              <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
-                As experienced educators ourselves, we witnessed firsthand the
-                limitations and challenges of traditional education systems. We
-                believed that education should not be confined to the walls of a
-                classroom or restricted by geographical boundaries. We
-                envisioned a platform that could bridge these gaps and empower
-                individuals from all walks of life to unlock their full
-                potential.
-              </p>
-            </div>
-
-            <div className="flex justify-center">
+        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between text-richblack-500">
+          <div className="flex flex-col items-center lg:flex-row justify-between">
+          
+            <div className="flex mx-auto mt-14">
               <img
                 src={FoundingStory}
                 alt=""
-                className="shadow-[0_0_20px_0] shadow-blue-300 w-[80%]"
+                className="shadow-[0_0_20px_0] shadow-blue-300 w-[80%] "
               />
             </div>
           </div>

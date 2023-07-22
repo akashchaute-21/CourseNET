@@ -35,7 +35,7 @@ export default function EnrolledCourses() {
           <div className="spinner"></div>
         </div>
       ) : !enrolledCourses.length ? (
-        <p className="grid h-[10vh] w-full place-content-center text-richblack-5">
+        <p className="grid h-[10vh] w-full place-content-center text-tblue2">
           You have not enrolled in any course yet.
        
         </p>

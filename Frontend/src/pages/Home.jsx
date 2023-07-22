@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 // import Banner from "../assets/Images/banner.mp4"
-import Banner from "../assets/HomePage_Video.mp4"
+import Banner from "../assets/Images/banner.mp4"
 import Footer from "../components/Common/Footer"
 import CTAButton from "../components/core/HomePage/Button"
 import CodeBlocks from "../components/core/HomePage/CodeBlocks"
@@ -11,6 +11,7 @@ import HighlightText from "../components/core/HomePage/HighlightText"
 import InstructorSection from "../components/core/HomePage/InstructorSection"
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection"
 import TimelineSection from "../components/core/HomePage/Timeline"
+import BG_IMG from "../assets/Images/background_img.png"
 
 function Home() {
   return (
@@ -19,46 +20,33 @@ function Home() {
       <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
         {/* Become a Instructor Button */}
         <Link to={"/signup"}>
-          <div className="group mx-auto mt-16 w-fit rounded-full uppercase font-bold  drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-105">
-            <div className="flex flex-row items-center gap-2 rounded-full border-2 px-8 py-[5px] text-tblue2  hover:bg-tblue2  hover:text-white transition duration-300 ease-in">
-              <p>Become an Instructor</p>
-              <FaArrowRight />
-            </div>
-          </div>
         </Link>
 
 
-        <div className="flex flex-row">
+        <div className="flex flex-row mt-20">
         <div className="flex flex-col w-[50%] items-center justify-center">
           {/* Heading */}
         <div className="text-center text-tblue2 text-4xl font-semibold w-[80%] justify-center">
-          Empower Your Future with
-          <HighlightText text={"Coding Skills"} />
+          Update your skills
+          <HighlightText text={"without limits"} />
         </div>
         {/* Sub Heading */}
         <div className="mt-3 w-[90%] text-center text-lg font-bold text-[#576875] justify-center">
-        Unleash your coding potential with our online courses. Learn at your own pace, from anywhere in the world. Gain access to a wide range of resources, hands-on projects, quizzes, and personalized instructor feedback.
+        Our platform offers a vast array of courses taught by expert instructors, empowering you to achieve your full potential. Embrace lifelong learning and stay ahead in today's ever-evolving world.
         </div>
 
         {/* CTA Buttons */}
         <div className="mt-8 flex flex-row gap-7 items-center justify-center">
           <CTAButton active={true} linkto={"/signup"}>
-            Learn More
+            Explore Courses
           </CTAButton>
         </div>
         </div>
 
-        {/* Video */}
+        {/* Image */}
         <div className="w-[50%] flex items-center justify-center">
-        <div className="flex shadow-[10px_-5px_50px_-5px] shadow-iconBlue w-[45%] justify-end">
-          <video
-            className="rounded-lg"
-            muted
-            loop
-            autoPlay
-          >
-            <source src={Banner} type="video/mp4" />
-          </video>
+        <div className="flex  justify-end">
+          <img src={BG_IMG} alt="" />
         </div>
         </div>
         </div>
@@ -69,9 +57,8 @@ function Home() {
             position={"lg:flex-row-reverse"}
             heading={
               <div className="text-4xl text-pure-greys-400 font-semibold">
-                Unlock your
-                <HighlightText text={"coding potential"} /> with our online
-                courses.
+                Harness the power of  
+                <HighlightText text={"interactive learning"} /> experiences.
               </div>
             }
             subheading={
@@ -93,34 +80,47 @@ function Home() {
           />
         </div>
 
-        {/* Code Section 2 */}
-        <div>
-          <CodeBlocks
-            position={"lg:flex-row"}
-            heading={
-              <div className="w-[100%] text-4xl text-pure-greys-400 font-semibold lg:w-[50%]">
-                Start
-                <HighlightText text={"coding in seconds"} />
-              </div>
-            }
-            subheading={
-              "Dive right in and start writing real code from day one in our immersive learning environment. Experience the thrill of practical learning and unleash your coding potential."
-            }
-            ctabtn1={{
-              btnText: "Continue Lesson",
-              link: "/signup",
-              active: true,
-            }}
-            ctabtn2={{
-              btnText: "Learn More",
-              link: "/signup",
-              active: false,
-            }}
-            codeColor={"text-white"}
-            codeblock={`import React from "react";\n import CTAButton from "./Button";\nimport TypeAnimation from "react-type";\nimport { FaArrowRight } from "react-icons/fa";\n\nconst Home = () => {\nreturn (\n<div>Home</div>\n)\n}\nexport default Home;`}
-            backgroundGradient={<div className="codeblock2 absolute"></div>}
-          />
+      
+      <div className={`flex flex-row my-20 justify-between lg:gap-10 gap-10`}>
+      {/* Section 1  */}
+      <div className="w-[100%] lg:w-[50%] flex flex-col gap-8">
+          <div className="w-[100%] text-4xl text-pure-greys-400 font-semibold lg:w-[60%]">
+                Enjoy the flexibility of <br />
+                <HighlightText text={"self-paced learning"} />
+          </div>
+
+        {/* Sub Heading */}
+        <div className="text-richblack-300 text-base font-bold w-[85%] -mt-3">
+        "Dive right in and start writing real code from day one in our immersive learning environment. Experience the thrill of practical learning and unleash your coding potential."
+           
         </div>
+
+        {/* Button Group */}
+        <div className="flex gap-7 mt-7">
+          <CTAButton active={true} linkto="/login">
+            <div className="flex items-center gap-2">
+              Continue Lesson
+              <FaArrowRight />
+            </div>
+          </CTAButton>
+          <CTAButton active={false} linkto="/login">
+            Learn More
+          </CTAButton>
+        </div>
+      </div>
+
+        {/* Codes */}
+        <div>
+        <video
+            className="rounded-lg h-[300px] shadow-xl shadow-pure-greys-200"
+            muted
+            loop
+            autoPlay
+          >
+            <source src={Banner} type="video/mp4" />
+          </video>
+        </div>
+    </div>
 
       </div>
 
