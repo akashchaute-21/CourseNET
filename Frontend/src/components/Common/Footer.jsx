@@ -14,7 +14,18 @@ const Footer = () => {
 
     <div className= "flex flex-col w-11/12 max-w-maxContent text-richblack-400 mx-auto py-14">
       <div className="flex flex-row">
-sndjfladsjkdafkj
+
+          <div className="flex flex-col w-[25%]">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum corporis necessitatibus sunt. Odio distinctio, aperiam molestias libero corrupti nulla assumenda doloremque, fugiat placeat ducimus quis. Quia facilis omnis ea praesentium.
+          </div>
+          <div className="flex flex-col w-25%">
+                Quick Links
+                <li>Find degree</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+          </div>
       </div>
 
       <div className="flex flex-row justify-between ">
