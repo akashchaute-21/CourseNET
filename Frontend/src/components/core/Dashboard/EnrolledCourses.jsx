@@ -28,8 +28,8 @@ export default function EnrolledCourses() {
 
   return (
     <>
-      <div className="text-4xl font-bold text-tblue2">Enrolled Courses</div>
-      <div className="h-[1px] my-4 w-[1000px] bg-tblue2"></div>
+      <div className="text-4xl mb-1 font-bold text-tblue2">Enrolled Courses</div>
+      <div className="h-[1.5px] my-8 w-[1000px] bg-tblue2"></div>
       {!enrolledCourses ? (
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
           <div className="spinner"></div>

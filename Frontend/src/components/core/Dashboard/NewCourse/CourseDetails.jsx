@@ -59,7 +59,7 @@ const CourseDetailsPage = () => {
       </div>
       </div>
         ) : ( 
-         <p>Loading...</p> 
+          <div className="spinner bg-tblue2"></div>
         )}
     </div>
  );

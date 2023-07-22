@@ -19,28 +19,18 @@ export default function DeleteAccount() {
 
   return (
     <>
-      <div className="my-10 flex flex-row gap-x-5 rounded-md border-2 border-pink-700 bg-darkyellow p-8 px-12">
-        <div className="flex aspect-square h-14 w-14 items-center justify-center rounded-full bg-pink-700">
+      <div className="my-10 flex flex-row gap-x-5 rounded-xl border-2  bg-[#FF0000] bg-opacity-60 border-pink-700 p-8 px-12">
+        <div onClick={handleDeleteAccount} className="flex  cursor-pointer aspect-square h-14 w-14 items-center justify-center rounded-full bg-pink-700">
           <FiTrash2 className="text-3xl text-pink-200" />
         </div>
-        <div className="flex flex-col space-y-2">
-          <h2 className="text-lg font-semibold text-pink-700">
-            Delete Account
+        <div  onClick={handleDeleteAccount} className="flex  cursor-pointer flex-col space-y-2">
+          <h2 className="text-xl font-extrabold text-tblue2">
+          DELETE ACCOUNT
           </h2>
-          <div className="w-3/5 text-tblue2">
-            <p>Would you like to delete account?</p>
-            <p>
-              This account may contain Paid Courses. Deleting your account is
-              permanent and will remove all the contain associated with it.
-            </p>
+          <div className=" text-tblue2 text-lg">
+            <p> All the data will be lost.</p>
           </div>
-          <button
-            type="button"
-            className="w-fit cursor-pointer italic text-pink-300 border-b-2"
-            onClick={handleDeleteAccount}
-          >
-            I want to delete my account.
-          </button>
+        
         </div>
       </div>
     </>
