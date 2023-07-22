@@ -106,27 +106,29 @@ useEffect(()=>{
 
   return (
     <section className='flex flex-col gap-5'>
-    
-      <div className='flex-row'>
-    
-      {/* <div >
-      <p className='font-bold  text-tblue2 text-4xl'>Explore different courses...</p>
-      <p className='font-semibold text-tblue2 text-3xl' >Learn to grow...</p>
-      </div> */}
-      
-      {/* <div className=" flex justify-center items-center">
+
+      <div className='flex flex-row justify-between'>
+      <div className='flex flex-col'>
+      <p className='font-bold flex  text-tblue2 text-4xl'>Explore different courses...</p>
+      <p className='font-semibold flex text-tblue2 text-3xl' >Learn to grow...</p>
+      </div>
+      <div className='flex flex-col font-semibold text-tblue2 '>
+        Sort By Categories:
       <button
         type="button"
         onClick={toggleDropdown}
-        className="rounded-[8px]  justify-center items-center gap-2 bg-[#4db5ff] py-[8px] px-[12px] font-medium text-richblack-900 mb-8"
+        className="rounded-full h-10 w-40 -translate-y-1 flex flex-row  justify-center items-center gap-2 bg-tblue2 py-[8px] px-[12px] font-medium text-tyellow2 "
       >
       {selCat}<AiOutlineDown/>
       </button>
-      </div>*/}
-      </div> 
+
+      </div>
+      </div>
+    
+
      
       {isOpen &&  (
-        <div className="absolute right-0 mt-40 bg-[#2c2c6c] rounded-md shadow-lg">
+        <div className="absolute right-36 mt-16  bg-[#2c2c6c] rounded-md shadow-lg">
            <ul className="py-1">
           {cats.map((cat)=>{
             return ( <li>
