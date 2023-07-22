@@ -8,7 +8,6 @@ import InstructorChart from "./InstructorDashboard/InstructorChart"
 
 export default function Instructor() {
   const { token } = useSelector((state) => state.auth)
-  const { user } = useSelector((state) => state.profile)
   const [loading, setLoading] = useState(false)
   const [instructorData, setInstructorData] = useState(null)
   const [courses, setCourses] = useState([])

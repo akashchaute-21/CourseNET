@@ -1,5 +1,4 @@
 import RenderSteps from "./RenderSteps"
-import IMGE from "../../../../assets/Images/aboutus1.png"
 
 export default function AddCourse() {
   return (

@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
 // Images
 import IMAGE from "../../assets/Logo/logo_courseNET2_white.png"; 
 

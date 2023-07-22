@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { fetchCourseDetails } from "../../../../services/operations/courseDetailsAPI";
 import { useSelector } from "react-redux";
-import IMG from "../../../../assets/Images/FoundingStory.png"
 
 const CourseDetailsPage = () => {
   const { courseId } = useParams();
